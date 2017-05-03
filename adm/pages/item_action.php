@@ -8,8 +8,7 @@
     $description = $_REQUEST["description"];
     $category = $_REQUEST["category"];
     $i_subcategory = ( isset($_REQUEST["i_subcategory"] ) ) ? $_REQUEST["i_subcategory"] : '0' ;
-    $subcategory = (($i_subcategory != 'subcategory_0') && ($i_subcategory != 0) && ($i_subcategory != '0')) ? $_REQUEST[$i_subcategory] : '0'; 
-    //$subcategory = ( $i_subcategory != '0' ) ? substr(strstr($i_subcategory, '_'), 1) : 0 ;
+    $subcategory = (($i_subcategory != 'subcategory_0') && ($i_subcategory !== 0) && ($i_subcategory != '0')) ? $_REQUEST[$i_subcategory] : '0'; 
     $gallery = ( isset($_REQUEST["gallery"] ) ) ? $_REQUEST["gallery"] : 0 ;
     $capa = ( isset($_REQUEST["capa"] ) ) ? $_REQUEST["capa"] : 0 ;
     $colors = ( isset($_REQUEST["colors"] ) ) ? $_REQUEST["colors"] : 0 ;

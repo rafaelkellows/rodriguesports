@@ -9,7 +9,7 @@
 <div id="topNav">
     <div class="fixed">
         <div class="wrapper">
-            <div class="backTo"><a href="http://www.spatula.com.br" title=""><img src="images/icons/topnav/mainWebsite.png" alt="" /><span>Main website</span></a></div>
+            <div class="backTo"><a href="javascript:void(0);" title=""><img src="images/icons/topnav/mainWebsite.png" alt="" /><span>Main website</span></a></div>
             <div class="userNav">
                 <ul>
                     <li><a href="mailto:rafaelkellows@hotmail.com" title=""><img src="images/icons/topnav/contactAdmin.png" alt="" /><span>Contate o Administrador</span></a></li>
@@ -22,7 +22,7 @@
 
 <!-- Login form area -->
 <div class="loginWrapper">
-	<div class="loginLogo"><img src="../images/logoSpatula.png" alt="" /></div>
+	<div class="loginLogo"><img src="../images/logoRodriguesSports.png" alt="" /></div>
     <div class="loginPanel">
         <div class="head"><h5 class="iUser">Login</h5></div>
         <form action="syslogin/controle.php" method="post" target="_self" id="valid" class="mainForm">

@@ -542,8 +542,8 @@ html ul.tabs li.activeTab a { color: #797979; }
 .moreFields ul li input { width: 98%!important; }
 .moreFields ul li.sep { padding: 3px 5px 3px 6px; display: block; margin: 0; width: auto; color: #d5d5d5; }
 .moreFields ul li > span { display: block; padding: 3px 12px; white-space: nowrap; }
-.moreFields.colors > ul > li { /*width: 490px;*/width: 120px; margin-right: 0; }
-.moreFields.colors ul li > input, .moreFields.colors ul li > input:hover, .moreFields.colors ul li > input:focus{ float: left; width: 52px !important;  text-align: center;  /*width: 0 !important; padding: 0; border: none;*/ }
+.moreFields.colors > ul > li { /*width: 490px;*/width: 215px; margin-right: 0; }
+.moreFields.colors ul li > input, .moreFields.colors ul li > input:hover, .moreFields.colors ul li > input:focus{ float: left; margin-right: 4px; width: 52px !important;  text-align: center;  /*width: 0 !important; padding: 0; border: none;*/ }
 .moreFields.colors ul li > input.color_label{ width: 210px !important; text-align: left; margin: 1px 10px; }
 .moreFields.colors ul li > label{ padding: 4px 0; margin-right: 0; }
 .moreFields.colors ul li > span{ float: left; border: 1px solid #f4f4f4; background: #fff; margin:4px 6px; padding: 0; width:18px; height: 18px; }

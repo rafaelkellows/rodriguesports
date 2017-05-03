@@ -712,8 +712,8 @@ $(document).ready(function() {
 			_tmlTitle = '';
 			if( !$('ul.size li').hasClass('active') ){
 				$('.product').fadeIn('slow',function(){
-	      			$('html,body').unbind('click').click(function(){
-						$('.product').fadeOut('fast');
+	      			$('html,body').click(function(){
+						$('.product').fadeOut('fast',function(){ $('html,body').unbind('click'); });
 					})
 	        	}).find('p strong').html('Atenção').parent().find('> span').html('<b>Você deve selecionar o tamanho!</b><br>A quantidade deste item você define no <b>Carrinho de Compras</b>.<br><a class="btn-default btn-color-E" style="text-align:center" href="javascript:void(0);">OK</a>');
 				return;
@@ -723,8 +723,8 @@ $(document).ready(function() {
 			
 			if( !$('ul.color li').hasClass('active') ){
 				$('.product').fadeIn('slow',function(){
-	      			$('html,body').unbind('click').click(function(){
-						$('.product').fadeOut('fast');
+	      			$('html,body').click(function(){
+						$('.product').fadeOut('fast',function(){ $('html,body').unbind('click'); });
 					})
 	        	}).find('p strong').html('Atenção').parent().find('> span').html('<b>Você deve selecionar a cor!</b>.<br><a class="btn-default btn-color-E" style="text-align:center" href="javascript:void(0);">OK</a>');
 				return;
@@ -742,7 +742,7 @@ $(document).ready(function() {
 				$(this).closest('.shopping_info').addClass('added');
 				$(this).remove();
 			}
-			alert(arrItens);
+
 			$.cookie("itens", JSON.stringify(arrItens), { path: '/', expires: 1 });
 			$(this).closest('dl').addClass('added');
 		});

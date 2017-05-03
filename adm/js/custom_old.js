@@ -91,6 +91,7 @@ $(function() {
 	var cat_exist = setInterval(function(){
 		if($('select[name=category]').length) {
 			clearInterval(cat_exist);
+			
 			$('select[name=category]').prev('ul').find('a').click(function(){
 				$('input[name=i_subcategory]').val( 'subcategory_' + $('select[name=category] option:selected').val() );
  				$(this).closest('.rowElem').next('div').find('.jqTransformSelectWrapper').hide().find('ul li:first a').click();
@@ -101,8 +102,9 @@ $(function() {
 				}
 			});
 			$("select[name^='subcategory_']").prev('ul').find('a').click(function(){
-				$('input[name=i_subcategory]').val( 'subcategory_' + $('select[name=category] option:selected').val() );
+				$('input[name=i_subcategory]').val( 'subcategory_' + $('select[name=category] option:selected').val() );		
 			});
+
 			//on ready document
 			$('select[name=category] option').each(function(){
 				if( $(this).is(':selected') ){

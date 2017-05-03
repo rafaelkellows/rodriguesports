@@ -130,7 +130,7 @@
 	                    }
 	                	echo '	</div>';
 	                }else{
-	                    echo "Não há Categoria(s) cadastrada(s)!";
+	                    echo "<p style='text-align:center'>Nenhum produto cadastrado.<br><br></p>";
 	                }
 	        	?>
 			</aside>

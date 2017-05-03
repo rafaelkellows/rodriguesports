@@ -8,6 +8,7 @@
                 if ($oSlctCats->rowCount() > 0) {
                     echo '<nav class="hide">';
                     echo '<a href="javascript:void(0);" class="fa fa-puzzle-piece" title="Menu"></a>';
+                    echo '<dl><dt><a href="./produtos.php">Todos os produtos</a></dt><dl>';
                     while ( $cat = $oSlctCats->fetch(PDO::FETCH_ASSOC) ) {
                         echo '<dl>';
                         $oSlctSubs = $oConn->SQLselector("*","subcategories",'cid='.$cat['id'],'name');

@@ -209,7 +209,12 @@
                                     echo '<li>';
                                     echo '  <input type="hidden" name="colors[]" value="'.$row_colors['color'].'" />';
                                     echo '  <input type="text" name="color" disabled value="'.$row_colors['color'].'" />';
+
+                                    echo '  <input type="hidden" name="colors_labels[]" value="'.$row_colors['label'].'" />';
+                                    echo '  <input style="width:130px !important;" type="text" name="color_label" value="'.$row_colors['label'].'" />';
+                                    
                                     echo '  <span style="background-color:#'.$row_colors['color'].'">&nbsp;</span>';
+                                    /*echo '  <input class="color_label" type="text" placeholder="Defina aqui um nome para essa cor" name="color_label[]" value="'.$row_colors['label'].'" />';*/
                                     /*echo '  <select name="lbl_color">';
                                     echo '      <option value="0">Cores adicionadas</option>';
                                     $slc_color = $oConn->SQLselector("*","colors","","");
