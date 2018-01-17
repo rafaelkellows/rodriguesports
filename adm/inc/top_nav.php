@@ -1,7 +1,7 @@
     <div id="topNav">
         <div class="fixed">
             <div class="wrapper"> 
-                <div class="welcome"><a href="#" title=""><img src="images/userPic.png" alt="" /></a><span>Ol·, <?php print $usuario->getName(); ?>!</span></div>
+                <div class="welcome"><a href="#" title=""><img src="images/userPic.png" alt="" /></a><span>Ol√°, <?php print $usuario->getName(); ?>!</span></div>
                 <div class="userNav">
                     <ul>
                         <li><a href="page.php?nvg=user&uid=<?php print $usuario->getId(); ?>" title=""><img src="images/icons/topnav/profile.png" alt="" /><span>Meu Perfil</span></a></li>

@@ -39,12 +39,12 @@
 					$oSlctProds = $oConn->SQLselector("*","produtos","status = 1 AND ((title LIKE '%".$search."%') OR (resume LIKE '%".$search."%') OR (description LIKE '%".$search."%') OR ('%".$search."%')) ",'modified DESC');
 	                if ($oSlctProds->rowCount() > 0) {
 	                	if($search){
-							echo '<dl><dt><h2 class="bgTitle">Encontrado(s) <font style="color:#333; font-size:22px;">'.$oSlctProds->rowCount().'</font> produto(s) com <font style="color:#333; font-size:22px;">'.$_REQUEST["search"].'</font> na descrição.</h2></dt></dl>';
+							echo '<dl><dt><h2 class="bgTitle">Encontrado(s) <font style="color:#333; font-size:22px;">'.$oSlctProds->rowCount().'</font> produto(s) com <font style="color:#333; font-size:22px;">'.$_REQUEST["search"].'</font> na descriÃ§Ã£o.</h2></dt></dl>';
 		                	echo '<section class="product_features">';
 						}else{
-	                		echo '<dl><dt><h2 class="bgTitle">Não encontrei nenhum produto cadastrado com o texto mencionado.<font style="color:#333; font-size:22px;">'.$search.'</font></h2></dt></dl>';
+	                		echo '<dl><dt><h2 class="bgTitle">NÃ£o encontrei nenhum produto cadastrado com o texto mencionado.<font style="color:#333; font-size:22px;">'.$search.'</font></h2></dt></dl>';
 		                	echo '<section class="product_features">';
-		                	echo '	<p><strong>Veja abaixo o que separamos para você:</strong><br><br></p>';
+		                	echo '	<p><strong>Veja abaixo o que separamos para vocÃª:</strong><br><br></p>';
 						}
 	                	echo '	<div class="filtering">';
 	                	echo '		<ul>';
@@ -92,9 +92,9 @@
 	                    echo '</section>';
 	                }else{
 						$oSlctProds = $oConn->SQLselector("*","produtos","status = 1",'title ASC');
-	                	echo '<dl><dt><h2 class="bgTitle">Não há produto cadastrado com <font style="color:#333; font-size:22px;">'.$_REQUEST["search"].'</font> na descrição.</h2></dt></dl>';
+	                	echo '<dl><dt><h2 class="bgTitle">NÃ£o hÃ¡ produto cadastrado com <font style="color:#333; font-size:22px;">'.$_REQUEST["search"].'</font> na descriÃ§Ã£o.</h2></dt></dl>';
 		                echo '<section class="product_features">';
-		                echo '	<p><strong>Veja abaixo o que separamos para você:</strong><br><br></p>';
+		                echo '	<p><strong>Veja abaixo o que separamos para vocÃª:</strong><br><br></p>';
 	                	echo '	<div class="filtering">';
 	                	echo '		<ul>';
 	                	echo '			<li class="active"><a class="block" title="Exibir em blocos" href="javascript:void(0);">Block</a></li>';

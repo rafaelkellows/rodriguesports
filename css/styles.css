@@ -9,9 +9,9 @@ h1,h2,h3,h4,h5,h6{margin: 0; padding: 0; font-weight: normal; }
 body, h1, h2, h3, h4, h5, h6, p, a{ font-family: 'Trebuchet MS'; color: #333; }
 /**/
 input[type=text]:disabled{ background: #f2f2f2 !important; }
-.btn-short{ width: 40px; height: 40px; line-height: 40px; text-indent: -9999em; border: 1px solid #dfaca2; -webkit-transition: background 0.3s, color 0.3s; transition: background 0.3s, color 0.3s; }
-.btn-short:after{ content: '+'; font-family: 'Tahoma'; color: #c8654f; font-size: 24px; text-indent: 0; position: absolute; top: 0; width: 100%; text-align: center;  }
-.btn-short:hover{ background:#c8654f; border: 1px solid #c8654f; color: #fff; }
+.btn-short{ width: 40px; height: 40px; line-height: 40px; text-indent: -9999em; background:#c8654f; border: 1px solid #c8654f; color: #fff; -webkit-transition: background 0.3s, color 0.3s; transition: background 0.3s, color 0.3s; }
+/*.btn-short:after{ content: '+'; font-family: 'Tahoma'; color: #c8654f; font-size: 24px; text-indent: 0; position: absolute; top: 0; width: 100%; text-align: center;  }*/
+.btn-short:hover{ border: 1px solid #dfaca2; color: #c8654f; background:#fff;  }
 .btn-short:hover:after{ color: #fff; }
 .btn-signin, .btn-login, .btn-logout, .btn-edit, .btn-shopping-basket{ font-family: 'aaux_proboldregular'; border-radius: 5px; box-sizing: border-box; color: #fff; font-size: 14px !important; padding: 4px 8px; text-transform: lowercase; height: auto; }
 	.btn-signin em, .btn-login em, .btn-logout em, .btn-edit em, .btn-shopping-basket em{ font-style: normal; margin: -1px 0 0 8px; display: inline-block; /*vertical-align: top; width: 0; height: 0; overflow: hidden; -webkit-transition: margin 0.3s; transition: margin 0.3s;*/ }
@@ -179,11 +179,22 @@ main{ border:1px solid #ececec; border-top: 0; max-width: 920px; margin:0 auto 4
 			
 			main section.highlights dl dd{ /*float: right; width: 110px;*/ position: initial; }
 				main section.highlights dl dd img{ /*position: absolute; bottom:10px; left:10px;*/ width: 100%; margin:5px 0; }
-				main section.highlights dl dd > p.lbl, main section.features dl dd p.lbl{ font-size: 16px; padding:5px; }
+				main section.highlights dl dd > p.lbl, main section.features dl dd p.lbl{ font-size: 18px; padding:5px; }
 					main section.highlights dl dd > p.lbl em, main section.features dl dd p.lbl em{ font-size: 13px; font-style: normal; letter-spacing: -0.01em}
 				main section.highlights dl dd > span.resume{ font-size: 14px; text-align: left; line-height: 16px; color: #333333; /*min-height: 96px;*/ padding: 10px 5px; overflow: hidden;}
 				main section.highlights dl dd a{ display: inline-block; vertical-align: middle; margin: 2px 5px; }
-				main section.highlights dl dd a.btn-color-E, main section.highlights dl dd a.btn-color-B, main section.features dl dd a.btn-color-E, main section.features dl dd a.btn-color-B{ width: 40px; height: 40px; border-radius: 0; line-height: 40px; padding: 0; }
+				main section.highlights dl dd a.btn-color-E, main section.highlights dl dd a.btn-color-B, 
+				main section.features dl dd a.btn-color-E, main section.features dl dd a.btn-color-B, 
+				main section.highlights dl dd a.btn-short, main section.features dl dd a.btn-short{ width: calc(100% - 10px); text-indent: initial; height: 40px; border-radius: 0; line-height: 40px; padding: 0; }
+
+				main section.features dl dd a.btn-color-E, main section.features dl dd a.btn-color-B, 
+				main section.highlights dl dd a.btn-short, main section.features dl dd a.btn-short{ width: calc(100% - 10px); text-indent: initial; height: 40px; border-radius: 0; line-height: 40px; padding: 0; }
+					main section.highlights dl dd a.btn-short, main section.features dl dd a.btn-short{ font-size: 14px; font-family: 'aaux_proboldregular';}
+					main section.highlights dl dd a.btn-checkout i, main section.features dl dd a.btn-checkout i{ display:none !important; font-size: 18px; vertical-align: middle; margin-top: -2px; }
+					main section.highlights dl dd a.btn-checkout:before, main section.features dl dd a.btn-checkout:before{
+						content: "\f07a"; font: normal normal normal 14px/1 FontAwesome; display: inline-block; vertical-align: middle; margin:-3px 4px 0 -2px;
+					}
+
 					main section.highlights dl dd a i, main section.features dl dd a i{ font-size: 18px; vertical-align: middle; margin-top: -2px; }
 	/* Features */
 	main section.features{ width: calc(100% + 39px); font-size: 0; text-align: center; }
@@ -365,21 +376,65 @@ main.main_products > aside{ width: 776px; display: inline-block; vertical-align:
 			main.main_products > aside > div > .shopping_info p.lbl{ text-align: center; line-height: 30px; }
 				main.main_products > aside > div > .shopping_info p.lbl strong{ font-size: 24px; }
 				main.main_products > aside > div > .shopping_info p.lbl strong:first-child{ font-size: 30px; }
-			main.main_products > aside > div > .shopping_info ul.size{ text-align: center; }
-				main.main_products > aside > div > .shopping_info ul.size li{ display: inline-block; vertical-align: middle; border:1px solid #c7c7c7; width: 25px ; height: 25px; line-height: 25px; text-align: center; margin: 0 5px; border-radius: 5px; cursor: pointer; -webkit-transition: all 0.3s; transition: all 0.3s;}
-				main.main_products > aside > div > .shopping_info ul.size li:hover{ background-color: #f6f6f6; color: #000; border-color: #f6f6f6; }
-				main.main_products > aside > div > .shopping_info ul.size li.active{ background-color: #b72126; color: #fff; border-color: #b72126; }
+			main.main_products > aside > div > .shopping_info ul.size,
+			main.main_products section.product_features #owl-product_features dl dd ul.size,
+			main section.highlights dl dd > ul.size, main section.features dl dd ul.size{ text-align: center; }
+				main.main_products > aside > div > .shopping_info ul.size em,
+			main.main_products section.product_features #owl-product_features dl dd ul.size em,
+			main section.highlights dl dd > ul.size em, main section.features dl dd ul.size em{ font-style: normal; display: block; font-size: 12px; padding-bottom: 5px; }
+				main.main_products > aside > div > .shopping_info ul.size li,
+			main.main_products section.product_features #owl-product_features dl dd ul.size li,
+			main section.highlights dl dd > ul.size li, main section.features dl dd ul.size li{ display: inline-block; vertical-align: middle; border:1px solid #c7c7c7; font-size: 13px; /*width: 25px;*/padding: 0 9px; height: 25px; line-height: 25px; text-align: center; margin: 0 5px; border-radius: 5px; cursor: pointer; -webkit-transition: all 0.3s; transition: all 0.3s;}
+				main.main_products > aside > div > .shopping_info ul.size li.unico,
+			main.main_products section.product_features #owl-product_features dl dd ul.size li.unico,
+		main section.highlights dl dd > ul.size li.unico, main section.features dl dd ul.size li.unico{ /*width: 60px;*/ }
+				main.main_products > aside > div > .shopping_info ul.size li:hover,
+			main.main_products section.product_features #owl-product_features dl dd ul.size li:hover,
+			main section.highlights dl dd > ul.size li:hover, main section.features dl dd ul.size li:hover{ background-color: #f6f6f6; color: #000; border-color: #4585ce; }
+				main.main_products > aside > div > .shopping_info ul.size li.active,
+			main.main_products section.product_features #owl-product_features dl dd ul.size li.active,
+			main section.highlights dl dd > ul.size li.active, main section.features dl dd ul.size li.active{ background-color: #b72126; color: #fff; border-color: #b72126; }
 				
-			main.main_products > aside > div > .shopping_info ul.color{ text-align: center; padding-top: 15px;  }
-				main.main_products > aside > div > .shopping_info ul.color li{ display: inline-block; vertical-align: middle; box-sizing: border-box; width: 25px ; height: 25px; line-height: 25px; text-align: center; margin: 0 5px; border-radius: 5px; cursor: pointer; -webkit-transition: all 0.3s; transition: all 0.3s; text-indent: -9999em; }
-				main.main_products > aside > div > .shopping_info ul.color li:hover,main.main_products > aside > div > .shopping_info ul.color li.active{ border:2px solid #b72126 !important; }
+			main.main_products > aside > div > .shopping_info ul.color,
+			main.main_products section.product_features #owl-product_features dl dd ul.color,
+			main section.highlights dl dd > ul.color, main section.features dl dd ul.color{ text-align: center; padding-top: 15px; padding-bottom: 10px;  }
+			main.main_products section.product_features #owl-product_features dl dd ul.color{ }
+				main.main_products > aside > div > .shopping_info ul.color em,
+				main.main_products section.product_features #owl-product_features dl dd ul.color em,
+				main section.highlights dl dd > ul.color em, main section.features dl dd ul.color em{ font-style: normal; display: block; font-size: 12px; padding-bottom: 5px; }
+				main.main_products > aside > div > .shopping_info ul.color em font,
+				main.main_products section.product_features #owl-product_features dl dd ul.color em font,
+				main section.highlights dl dd > ul.color em, main section.features dl dd ul.color em font{ font-size: 12px; }
+				main.main_products > aside > div > .shopping_info ul.color li,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li,
+				main section.highlights dl dd > ul.color li, main section.features dl dd ul.color li{ display: inline-block; vertical-align: middle; box-sizing: border-box; font-size: 13px; width: 25px ; height: 25px; line-height: 25px; text-align: center; margin: 0 5px; border-radius: 5px; cursor: pointer; -webkit-transition: all 0.3s; transition: all 0.3s; text-indent: -9999em; }
+				main.main_products > aside > div > .shopping_info ul.color li:after,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li:after,
+				main section.highlights dl dd > ul.color li:after, main section.features dl dd ul.color li:after{ 
+					content: ''; position: absolute; width: calc(100% + 4px); height: calc(100% + 4px); border:1px solid #4585ce; border-radius: 6px; top: 0; margin: -3px; display: none; }
+				main.main_products > aside > div > .shopping_info ul.color li.diverso,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li.diverso,
+				main section.highlights dl dd > ul.color li.diverso, main section.features dl dd ul.color li.diverso{ width: 70px !important; border:1px solid #c7c7c7 !important; text-indent: 0;}
+				main.main_products > aside > div > .shopping_info ul.color li.diverso:hover,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li.diverso:hover,
+				main section.highlights dl dd > ul.color li.diverso:hover, main section.features dl dd ul.color li.diverso:hover{ background-color: #f6f6f6; color: #4585ce; border-color: #f6f6f6; }
+				main.main_products > aside > div > .shopping_info ul.color li.diverso.active,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li.diverso.active,
+				main section.highlights dl dd > ul.color li.diverso.active, main section.features dl dd ul.color li.diverso.active{ background-color: #b72126; color: #fff; border-color: #b72126; height: 25px; line-height: 24px; }
+				
+				main.main_products > aside > div > .shopping_info ul.color li:hover:after,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li:hover:after,
+				main section.highlights dl dd > ul.color li:hover:after, main section.features dl dd ul.color li:hover:after,
+				main.main_products > aside > div > .shopping_info ul.color li.active:after,
+				main.main_products section.product_features #owl-product_features dl dd ul.color li.active:after,
+			main section.highlights dl dd > ul.color li.active:after, main section.features dl dd ul.color li.active:after{ display: block; /*border:2px solid #b72126 !important; height: 23px; width: 23px; */ }
 
 			main.main_products > aside > div > .shopping_info a.btn-default.btn-color-B,
 			main.main_products > aside > div > .shopping_info a.btn-default.btn-color-E{ width: 214px; text-align: center; margin:15px auto; }
 			main.main_products > aside > div > .shopping_info span{width: 214px; left: -200px; text-align: center; margin: 0 auto 15px; right: initial; }
 			main.main_products > aside > div > .shopping_info a i{ margin:0 5px 0 0  }
 	main.main_products > aside > section.product_description{ padding: 0 20px 20px; }
-		main.main_products > aside > section.product_description > p{ font-size: 14px; line-height: 18px; color: #333; margin-bottom: 15px; }
+		main.main_products > aside > section.product_description > *{ font-size: 14px !important; line-height: 18px; color: #333; margin-bottom: 15px; }
 		main.main_products > aside > section.product_description > p strong{ font-family: 'aaux_proboldregular'; font-size: 18px; font-weight: normal; color: #b72126; }
 		main.main_products > aside > section.product_description > p span.color{ display: inline-block; vertical-align: top; width: 20px; height: 20px; background-color: #000; margin:3px 5px 0 0; font-size: 0; cursor: pointer; }
 		main.main_products > aside > section.product_description > p span.white{ background-color: #fff; border:1px solid #f4f4f4; width: 18px; height: 18px; }

@@ -5,16 +5,16 @@
         $row = $all->fetch(PDO::FETCH_ASSOC);
         $hiddenVal = 'user'; 
         $btValue = 'Salvar Dados';
-        $blockquoteValue = '<strong>'.$row['name'].'</strong> foi criado em '.date_format(date_create($row['created']), 'd/m/y').' ‡s '.date_format(date_create($row['created']), 'G:ia').' e alterado em '.date_format(date_create($row['modified']), 'd/m/y').' ‡s '.date_format(date_create($row['modified']), 'G:ia').'.';
+        $blockquoteValue = '<strong>'.$row['name'].'</strong> foi criado em '.date_format(date_create($row['created']), 'd/m/y').' √†s '.date_format(date_create($row['created']), 'G:ia').' e alterado em '.date_format(date_create($row['modified']), 'd/m/y').' √†s '.date_format(date_create($row['modified']), 'G:ia').'.';
     }else{
         $row = (!isset($_GET["email"]) ? 0 : Array ( 'id' => 0, 'name' => $_GET["name"],'email' => $_GET["email"], 'login' => $_GET["login"], 'password' => '', 'type' => $_GET["type"], 'status' => $_GET["status"] ) );
         $hiddenVal = 'new_user';
         $btValue = 'Inserir Dados';
-        $blockquoteValue = '<strong>Ol·</strong>, preencha o formul·rio abaixo corretamente.';
+        $blockquoteValue = '<strong>Ol√° '. $usuario->getName() .'</strong>, preencha o formul√°rio abaixo corretamente.';
     }
     $submitReturn = (!isset($_GET["msg"]) ? -1 : $_GET["msg"]);
 ?>
-    	<div class="title"><h5>Usu·rio</h5></div>
+    	<div class="title"><h5>Usu√°rio</h5></div>
         
         <?php
             switch ($submitReturn) {
@@ -38,13 +38,13 @@
                 
                 case 3:
                     echo '<div class="nNote nSuccess hideit">';
-                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluÌdos corretamente.</p>';
+                    echo '  <p><strong>SUCESSO: </strong>os dados foram exclu√≠dos corretamente.</p>';
                     echo '</div>';
                     break;
                 
                 case 4:
                     echo '<div class="nNote nFailure hideit">';
-                    echo '  <p><strong>FALHOU: </strong>O e-mail informado j· foi utilizado. Por favor, preencha com novos dados.</p>';
+                    echo '  <p><strong>FALHOU: </strong>O e-mail informado j√° foi utilizado. Por favor, preencha com novos dados.</p>';
                     echo '</div>';
                     break;
                 
@@ -121,7 +121,7 @@
                         <label>Tipo:</label> 
                         <div class="formRight">
                             <input type="radio" name="type" <?php if( $row['type'] == 1 ) print 'checked="checked" '; ?> value="1" /><label>Admistrador</label>
-                            <input type="radio" name="type" <?php if( $row['type'] == 0 ) print 'checked="checked" '; ?> value="0" /><label>Usu·rio</label>
+                            <input type="radio" name="type" <?php if( $row['type'] == 0 ) print 'checked="checked" '; ?> value="0" /><label>Usu√°rio</label>
                         </div>
                         <div class="fix"></div>
                     </div>
@@ -140,7 +140,7 @@
             <input type="submit" value="<?php print $btValue; ?>" class="greenBtn submitForm first" />
             <?php 
                 if ( isset($row['id']) ) 
-                    echo '<input type="button" value="Excluir Usu·rio" class="redBtn floatright deleteUser first" />';
+                    echo '<input type="button" value="Excluir Usu√°rio" class="redBtn floatright deleteUser first" />';
             ?>
         </form>   
              

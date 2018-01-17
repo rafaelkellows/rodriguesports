@@ -28,7 +28,7 @@
 			<section class="checkout msgBox">
 				<p>
 					<strong title="Aguarde">Aguarde...</strong><br>
-					<span>Seu pedido está sendo processado.</span>
+					<span>Seu pedido estÃ¡ sendo processado.</span>
 				</p>
 			</section>		
 			<aside>
@@ -57,13 +57,13 @@
 											echo '<ul>';
 											echo '	<li><strong>Dados da Compra</strong></li>';
 											echo '	<li>User ID: <em>'.$usuario->getId().'</em><input type="hidden" name="user_id" value="'.$usuario->getId().'" /></li>';
-											echo '	<li>Cód: <em> SPTL'.$usuario->getId(). date('dmYHis').'</em><input type="hidden" name="reference" value="SPTL'.$usuario->getId(). date('dmYHis').'" /></li>';
+											echo '	<li>CÃ³d: <em> SPTL'.$usuario->getId(). date('dmYHis').'</em><input type="hidden" name="reference" value="SPTL'.$usuario->getId(). date('dmYHis').'" /></li>';
 											echo '	<li>&nbsp;</li>';
 											echo '	<li><strong>Dados do Comprador</strong></li>';
 											echo '	<li>Nome: <em>'.$row['name'].'</em><input type="hidden" name="senderName" value="'. $row['name'] .'" /></li>';
 											//echo '	<li>CEP: <em>'.$row['cpf'].'</em><input type="hidden" name="cpf" value="'. $row['cpf'] .'" /></li>';
 											$find = array("-","(",")"," ");
-											echo '	<li>Contato: <em>'. (($row['cellphone']!='') ? $row['cellphone'] : 'Não cadastrado.' ) .'</em>'; //( str_replace($find,'',$row['cellphone']) )
+											echo '	<li>Contato: <em>'. (($row['cellphone']!='') ? $row['cellphone'] : 'NÃ£o cadastrado.' ) .'</em>'; //( str_replace($find,'',$row['cellphone']) )
 											echo '	<input type="hidden" name="senderAreaCode" value="'. substr(( str_replace($find,'',$row['cellphone']) ),0,2) .'" />';
 											echo '	<input type="hidden" name="senderPhone" value="'. substr(( str_replace($find,'',$row['cellphone']) ),2) .'" />';
 											echo '	</li>';
@@ -92,7 +92,7 @@
 							?>
 						</span>
 						<article>
-							<p>Confira abaixo a lista de itens dos produtos que você adicionou ao carrinho. <br><strong style="font-size: 16px"> Obs.:</strong> não esqueça de nos enviar a imagem do logo da sua marca para <br>analisarmos. Você pode enviar arquivos em JPG, JPEG ou PNG de até 300kb.</p>
+							<p>Confira abaixo a lista de itens dos produtos que vocÃª adicionou ao carrinho. <br><strong style="font-size: 16px"> Obs.:</strong> nÃ£o esqueÃ§a de nos enviar a imagem do logo da sua marca para <br>analisarmos. VocÃª pode enviar arquivos em JPG, JPEG ou PNG de atÃ© 300kb.</p>
 							<form id="checkout" action="/" method="post" target="_blank" enctype="multipart/form-data">
 								<input type="hidden" id="currency" name="currency" value="BRL" />
 								<input type="hidden" id="shippingType" name="shippingType" value="3" />
@@ -102,7 +102,7 @@
 									<label><strong>Selecione o arquivo</strong></label>
 									<input type="file" name="file" id="file" /><br><br>
 									<input type="checkbox" name="no_image" id="no_image" style="width:25px" value="true" /> 
-									<label for="no_image" style="margin-top: -11px; display: inline-block; vertical-align: middle;"><strong>Não tenho imagem para enviar</strong></label>
+									<label for="no_image" style="margin-top: -11px; display: inline-block; vertical-align: middle;"><strong>NÃ£o tenho imagem para enviar</strong></label>
 									<div id="image_preview">
 										<p id='loading' >loading..</p>
 										<div id="message"></div>
@@ -131,13 +131,13 @@
 											</tr>
 											<tr class="bg weight">
 												<td colspan="4" style="text-align: right; padding-right: 5px;">Peso total estimado:</td>
-												<td><i>0</i>gr</td>
+												<td><i>0</i> Kg</td>
 											</tr>
 											<tr>
 												<td colspan="5">&nbsp;</td>
 											</tr>
 											<tr>
-												<td colspan="5" style="font-size: 14px; text-align: center;"><strong style="font-size: 14px">Frete:</strong> você poderá escolher PAC ou SEDEX no box de pagamento do PagSeguro ao finalizar sua compra.</td>
+												<td colspan="5" style="font-size: 14px; text-align: center;"><strong style="font-size: 14px">Frete:</strong> vocÃª poderÃ¡ escolher PAC ou SEDEX no box de pagamento do PagSeguro ao finalizar sua compra.</td>
 											</tr>
 											<tr>
 											<?php

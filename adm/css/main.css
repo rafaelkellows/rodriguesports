@@ -272,6 +272,7 @@ input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, but
 .leftNav ul li.widgets a span { background: url(../images/icons/dark/full.png) no-repeat 10px; }
 .leftNav ul li.contacts a span { background: url(../images/icons/dark/users.png) no-repeat 10px; }
 .leftNav ul li.products a span { background: url(../images/icons/dark/imagesList.png) no-repeat 10px; }
+.leftNav ul li.cog a span { background: url(../images/icons/dark/cog3.png) no-repeat 10px; }
 
 
 /* Left navigation subnav */
@@ -540,18 +541,21 @@ html ul.tabs li.activeTab a { color: #797979; }
 
 .moreFields ul li { float: left; width: 42px; margin: 0 10px 0 0; }
 .moreFields ul li input { width: 98%!important; }
-.moreFields ul li.sep { padding: 3px 5px 3px 6px; display: block; margin: 0; width: auto; color: #d5d5d5; }
+.moreFields ul li.sep { padding: 3px 5px 5px 6px; display: block; margin: 0; width: auto; color: #d5d5d5; }
 .moreFields ul li > span { display: block; padding: 3px 12px; white-space: nowrap; }
 .moreFields.colors > ul > li { /*width: 490px;*/width: 215px; margin-right: 0; }
 .moreFields.colors ul li > input, .moreFields.colors ul li > input:hover, .moreFields.colors ul li > input:focus{ float: left; margin-right: 4px; width: 52px !important;  text-align: center;  /*width: 0 !important; padding: 0; border: none;*/ }
-.moreFields.colors ul li > input.color_label{ width: 210px !important; text-align: left; margin: 1px 10px; }
+.moreFields.colors ul li > input.color_label{ width: 210px !important; text-align: left; margin: 0 10px; }
 .moreFields.colors ul li > label{ padding: 4px 0; margin-right: 0; }
 .moreFields.colors ul li > span{ float: left; border: 1px solid #f4f4f4; background: #fff; margin:4px 6px; padding: 0; width:18px; height: 18px; }
 .moreFields.colors ul li div.jqTransformSelectWrapper{ width:150px; margin:2px 0 0 5px; }
-.moreFields.colors ul li div.jqTransformSelectWrapper li{ width:100%; }
-.moreFields.colors ul li.sep { width: auto;  }
+.moreFields.colors ul li div.jqTransformSelectWrapper div span em{ position: absolute; top: 0; width: 45%; height: 22px; right: 32px; margin-top: 2px; }
+.moreFields.colors ul li div.jqTransformSelectWrapper li{ width:100%; position: relative; }
+    .moreFields.colors ul li div.jqTransformSelectWrapper li span{ position: absolute; top: 2px; right: 2px; margin: 0; width: 50%; }
+    .moreFields.colors ul li div.jqTransformSelectWrapper li:first-child span{ display: none; }
+.moreFields.colors ul li.sep { width: auto; margin-right: 30px;  }
 .moreFields.colors ul li.sep a { border:1px solid #e7e7e7; padding:4px; display: inline-block;  }
-.moreFields.colors ul li.line { width: 100%; height: 10px;  }
+.moreFields.colors ul li.line { width: 100%; height: 10px; clear: both; float: none; }
 
 .itemDisabled { color: #b7b7b7; }
 

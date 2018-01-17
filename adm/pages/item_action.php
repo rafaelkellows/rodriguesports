@@ -11,7 +11,11 @@
     $subcategory = (($i_subcategory != 'subcategory_0') && ($i_subcategory !== 0) && ($i_subcategory != '0')) ? $_REQUEST[$i_subcategory] : '0'; 
     $gallery = ( isset($_REQUEST["gallery"] ) ) ? $_REQUEST["gallery"] : 0 ;
     $capa = ( isset($_REQUEST["capa"] ) ) ? $_REQUEST["capa"] : 0 ;
+    
     $colors = ( isset($_REQUEST["colors"] ) ) ? $_REQUEST["colors"] : 0 ;
+    $color_label = ( isset($_REQUEST["color_label"] ) ) ? $_REQUEST["color_label"] : 0 ;
+    $slct_color_label = ( isset($_REQUEST["labelColor"] ) ) ? $_REQUEST["labelColor"] : 0 ;
+    
     $size = ( isset($_REQUEST["size"] ) ) ? $_REQUEST["size"] : 0 ;
     $length = ( isset($_REQUEST["length"] ) ) ? $_REQUEST["length"] : 0 ;
     $width = ( isset($_REQUEST["width"] ) ) ? $_REQUEST["width"] : 0 ;
@@ -20,7 +24,7 @@
     $height = ( isset($_REQUEST["height"] ) ) ? $_REQUEST["height"] : 0 ;
     $weight = ( isset($_REQUEST["weight"] ) ) ? $_REQUEST["weight"] : 0 ;
     //$min_price = ( isset($_REQUEST["min_price"] ) ) ? $_REQUEST["min_price"] : null ;
-    $max_price = ( isset($_REQUEST["max_price"] ) ) ? $_REQUEST["max_price"] : null ;
+    $max_price = ( isset($_REQUEST["max_price"] ) ) ? $_REQUEST["max_price"] : '0,00' ;
     $prod_code = ( isset($_REQUEST["prod_code"] ) ) ? $_REQUEST["prod_code"] : null ;
     $highlight = ( isset($_REQUEST["highlight"] ) ) ? $_REQUEST["highlight"] : 0 ;
     $combine = ( isset($_REQUEST["combine"] ) ) ? $_REQUEST["combine"] : 0 ;
@@ -85,9 +89,10 @@
                     }
                 }
                 //Colors
-                if(isset($_REQUEST["colors"]) ){
-                    //For each color from Form
-                    foreach($_REQUEST["colors"] as $c => $c_name ){
+                if($colors && $colors!=''){
+                    //For each COLOR from Form
+                    $cl = join(',', $color_label);
+                    foreach($colors as $c => $c_name ){
                         $sqlSct = $oConn->SQLselector("*","colors","pid='".$id."'",'');
                         $exist = false;
                         $currCOLOR_n = $colors[$c];
@@ -99,8 +104,13 @@
                                 break;
                             }
                         }
+                        
                         if(!$exist){
-                            $sqlInsert = $oConn->SQLinserter("colors","pid, color, inserted","'$id','$currCOLOR_n',now()");
+                            if( $currCOLOR_n ){
+                                //echo 'asdasd'.$currCOLOR_n;
+                                $cl = $color_label[$c];
+                                $sqlInsert = $oConn->SQLinserter("colors","pid, color, label, inserted","'$id','$currCOLOR_n','$cl',now()");
+                            }
                         }
                     }
                     //For each color from Database
@@ -127,6 +137,7 @@
                 }
                 //Contents
                 $sqlUpdate = $oConn->SQLupdater("produtos","modified = now(), cid = '$category', sid = '$subcategory', title = '$title', resume = '$resume', description = '$description', capa = '$capa', size = '$size', length = '$length', width = '$width', depth = '$depth', radius = '$radius', height = '$height', weight = '$weight', min_price = 0, max_price = '$max_price', prod_code = '$prod_code', highlight = '$highlight', combine = '$combine', status = '$status' ","id='".$id."'");
+                //echo "modified = now(), cid = '$category', sid = '$subcategory', title = '$title', resume = '$resume', description = '$description', capa = '$capa', size = '$size', length = '$length', width = '$width', depth = '$depth', radius = '$radius', height = '$height', weight = '$weight', min_price = 0, max_price = '$max_price', prod_code = '$prod_code', highlight = '$highlight', combine = '$combine', status = '$status' ","id='".$id."'";
                 $row = $sqlUpdate->fetch(PDO::FETCH_ASSOC);
                 if($sqlUpdate){
                     header('location: ../page.php?nvg=item&pid='.$id.'&msg=1');
@@ -168,7 +179,7 @@
             }
             //Colors
             if(isset($_REQUEST["colors"]) ){
-                //For each image from Form
+                //For each COLOR from Form
                 foreach($_REQUEST["colors"] as $c => $c_name ){
                     $sqlInsert = $oConn->SQLinserter("colors","pid, color, inserted","'$id','$colors[$c]',now()");
                 }

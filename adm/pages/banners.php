@@ -25,13 +25,13 @@
                 
                 case 3:
                     echo '<div class="nNote nSuccess hideit">';
-                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluÌdos corretamente.</p>';
+                    echo '  <p><strong>SUCESSO: </strong>os dados foram exclu√≠dos corretamente.</p>';
                     echo '</div>';
                     break;
                 
                 case 4:
                     echo '<div class="nNote nFailure hideit">';
-                    echo '  <p><strong>FALHOU: </strong>Este banner j· foi cadastrado. Por favor, preencha com novos dados.</p>';
+                    echo '  <p><strong>FALHOU: </strong>Este banner j√° foi cadastrado. Por favor, preencha com novos dados.</p>';
                     echo '</div>';
                     break;
                 
@@ -49,7 +49,7 @@
 
         <!-- Blockquote -->
         <blockquote class="first">
-            Clique no Ìcone <img src="images/icons/dark/pencil.png" alt="" style="display:inline-block; vertical-align:middle;" /> no canto inferior direito de cada imagem para edit·-lo ou<br>no bot„o "Inserir Novo Banner" para adicionar um novo. 
+            Clique no √≠cone <img src="images/icons/dark/pencil.png" alt="" style="display:inline-block; vertical-align:middle;" /> no canto inferior direito de cada imagem para edit√°-lo ou<br>no bot√£o "Inserir Novo Banner" para adicionar um novo. 
         </blockquote>
         <div class="aligncenter first">
             <a href="page.php?nvg=banner" title="" class="btnIconLeft mr10 mt5"><img src="images/icons/dark/image2.png" alt="" class="icon" /><span>Inserir Novo Banner</span></a>
@@ -110,7 +110,7 @@
                             echo '</li>';
                             }
                         }else{
-                            "N„o h· Banner(s) cadastrado(s)!";
+                            "N√£o h√° Banner(s) cadastrado(s)!";
                         }
                     ?>
                    </ul> 

@@ -28,7 +28,7 @@
 			<section class="product msgBox">
 				<p>
 					<strong title="Aguarde">Aguarde...</strong><br>
-					<span>Seu pedido est· sendo processado.</span>
+					<span>Seu pedido est√° sendo processado.</span>
 				</p>
 			</section>		
 			<?php
@@ -43,10 +43,11 @@
 					$oConn = New Conn();
 					$p_id = $_REQUEST["id_prod"];
 					$oSlctProds = $oConn->SQLselector("*","produtos",'id = '.$p_id.' and status = 1','');
+                    $colors = $oConn->SQLselector("*","colors","pid='".$p_id."'",'id ASC');
 
 	                if ($oSlctProds->rowCount() > 0) {
 	                	$rows = $oSlctProds->fetch(PDO::FETCH_ASSOC);
-	                	/* TÌtulo */
+	                	/* T√≠tulo */
 	                	if( isset($rows['title'])){
 	                		echo "<h2 class='bgTitle'>" .$rows['title']. "</h2>";
 	                		echo "<a class='btn-back' href='javascript:window.history.back();'>voltar</a>";
@@ -60,7 +61,9 @@
 							echo "	<input type='hidden' name='resume' value='".$rows['resume']."' />";
 							$oImage = $oConn->SQLselector("*","galeria","id=".$rows['capa'],'');
 							echo "	<input type='hidden' name='capa' value='".( ( $oImage->rowCount() > 0 ) ? $oImage->fetch(PDO::FETCH_ASSOC)['src']: 'images/produtos/logo_util.jpg')."' />";
-							echo "	<p style='width:50%'><em>Deslize para ver as outras imagens</em></p>";
+							if( $oSlctImages->rowCount() > 1){
+								echo "<p style='width:50%'><em>Deslize para ver as outras imagens</em></p>";
+							}
 							echo "	<ul id='owl-product'>";
 	 							while ( $row = $oSlctImages->fetch(PDO::FETCH_ASSOC) ) {
 	 								echo "<li><img src='".$row["src"]."' alt='' /></li>";
@@ -74,24 +77,31 @@
 								$string = $rows['size'];
 								$array = explode(',', $string);
 								echo "<ul class='size'>";
+								echo "	<em>" . ( ( stripos($rows['size'], 'ml') === false) ? "Tamanho" : "Capacidade") . " dispon√≠vel</em>";
 								foreach($array as $size){
-									echo "<li>".$size . '</li>';
+									echo "<li class='". (($size=='') ? "unico" : null ) ."'>". (($size!='') ? $size : "√∫nico")  . '</li>';
 								}
 								echo "</ul>";
 
-		                        $colors = $oConn->SQLselector("*","colors","pid='".$p_id."'",'id ASC');
 		                        if ($colors->rowCount() > 0) {
 		                			echo "<ul class='color'>";
+									echo "	<em>Cor dispon√≠vel</em>";
 									while ( $row_colors = $colors->fetch(PDO::FETCH_ASSOC) ) {
-										echo "<li style='background-color:#".$row_colors['color']."; ". (( $row_colors['color'] == 'ffffff') ? 'border:1px solid #f4f4f4;' : '' )."' title='".$row_colors['label']."'>".$row_colors['color']."</li>";
+										if($row_colors['color']!=''){
+											echo "<li style='background-color:#".$row_colors['color']."; ". (( $row_colors['color'] == 'ffffff') ? 'border:1px solid #f4f4f4;' : '' )."' title='".$row_colors['label']."'>".$row_colors['color']."</li>";
+										}
 									}
 		                			echo "</ul>";
-		                            
+		                        }else{
+		                			echo "<ul class='color'>";
+									echo "	<em>Cor dispon√≠vel</em>";
+									echo "	<li class='diverso'>diverso</li>";
+		                			echo "</ul>";
 		                        }
 								echo '  <a class="btn-default btn-color-E" href="checkout.php?id_rows='.$rows['id'].'&min='.$rows['min_price'].'&max='.$rows['max_price'].'&weight='.$rows['weight'].'" alt="Adicionar ao Carrinho"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>';
-								echo '	<a class="btn-default btn-color-B" href="orcamento.php?id_prod='.$rows['id'].'&cat='.$rows['cid'].'&sub='.$rows['sid'].'&capa='.$rows['capa'].'" alt="Solicitar OrÁamento"><i class="fa fa-edit"></i> Solicitar OrÁamento</a>';
+								echo '	<a class="btn-default btn-color-B" href="orcamento.php?id_prod='.$rows['id'].'&cat='.$rows['cid'].'&sub='.$rows['sid'].'&capa='.$rows['capa'].'" alt="Solicitar Or√ßamento"><i class="fa fa-edit"></i> Solicitar Or√ßamento</a>';
 							}else{
-								echo '	<a class="btn-default btn-color-B" href="orcamento.php?id_prod='.$rows['id'].'&cat='.$rows['cid'].'&sub='.$rows['sid'].'&capa='.$rows['capa'].'" alt="Solicitar OrÁamento">Solicitar OrÁamento</a>';
+								echo '	<a class="btn-default btn-color-B" href="orcamento.php?id_prod='.$rows['id'].'&cat='.$rows['cid'].'&sub='.$rows['sid'].'&capa='.$rows['capa'].'" alt="Solicitar Or√ßamento">Solicitar Or√ßamento</a>';
 							}
 							echo "	</div>";
 							echo "</div>";
@@ -99,34 +109,36 @@
 							echo "<p>&nbsp;</p>";
  						}
 
-	                	/* InformaÁıes */
+	                	/* Informa√ß√µes */
 	                	echo "<section class='product_description'>";
                 		
                 		if( isset($rows['description'])){
                 			echo "<p>";
-                			echo "	<strong>DescriÁ„o do Produto</strong><br>" .$rows['description'];
+                			echo "	<strong>Descri√ß√£o do Produto</strong><br>" .$rows['description'];
                 			echo "</p>";
                 		}
                 		if( isset($rows['size']) && !empty($rows['size']) ){
                 			echo "<p>";
-                			echo "	<strong>". ( ( stripos($rows['size'], 'ml') === false) ? "Tamanho" : "Capacidade")  ."</strong><br>".$rows['size'];
+                			echo "	<strong>". ( ( stripos($rows['size'], 'ml') === false) ? "Tamanho(s)" : "Capacidade")  ."</strong><br>".$rows['size'];
                 			echo "</p>";
                 		}
 
-                        $colors = $oConn->SQLselector("*","colors","pid='".$p_id."'",'id ASC');
                         if ($colors->rowCount() > 0) {
                 			echo "<p>";
-                			echo "	<strong>Cores de preenchimento disponÌveis</strong><br>";
+                			echo "	<strong>Cor(es)</strong><br>";
 							while ( $row_colors = $colors->fetch(PDO::FETCH_ASSOC) ) {
 								echo "<span class='color' style='background-color:#".$row_colors['color']."; ". (( $row_colors['color'] == 'ffffff') ? 'border:1px solid #f4f4f4; width:18px; height:18px;' : '' )."' title='".$row_colors['label']."'>&nbsp;</span>";
 							}
                 			echo "</p>";
-                            
+                        }else{
+                			echo "<p>";
+                			echo "	<strong>Cor(es)</strong><br>diverso";
+							echo "</p>";
                         }
 
                 		if( $rows['length'] > 0 && $rows['width'] > 0 && $rows['depth'] > 0 && $rows['radius'] == 0 ){
                 			echo "<p>";
-                			echo "	<strong>Dimensıes (C x L x P)</strong><br>" .$rows['length']. " x ".$rows['width']. " x ".$rows['depth']. " cm " ;
+                			echo "	<strong>Dimens√µes (C x L x P)</strong><br>" .$rows['length']. " x ".$rows['width']. " x ".$rows['depth']. " cm " ;
                 			echo "</p>";
                 		}else{
                 			if( isset($rows['radius']) && !empty($rows['radius'])){
@@ -138,13 +150,13 @@
 
                 		if( isset($rows['weight']) && !empty($rows['weight'])){
                 			echo "<p>";
-                			echo "	<strong>Peso</strong><br>".$rows['weight']. " gr " ;
+                			echo "	<strong>Peso</strong><br>".$rows['weight']. " kg" ;
                 			echo "</p>";
                 		}
 	                	echo "</section>";
 	                }else{
 	                    
-	                    "N„o h· produto cadastrado";
+	                    "N√£o h√° produto cadastrado";
 	                }
 	        	?>
 	        	<div class="socials-links">

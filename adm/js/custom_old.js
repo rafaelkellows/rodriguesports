@@ -197,7 +197,7 @@ $(function() {
     	var _form = $("#categoriesForm");
     	
     	var _add_item = function(_level,_cid){
-			jPrompt('Digite abaixo um título para o novo item e clique em OK para cadastrar<br>ou em CANCEL para sair dessa janela.', '', 'ADICIONAR ITEM', function(_name) {
+			jPrompt('Digite abaixo um tÃ­tulo para o novo item e clique em OK para cadastrar<br>ou em CANCEL para sair dessa janela.', '', 'ADICIONAR ITEM', function(_name) {
 				if( _name ){
 					if(_level == "subcat"){
 						_form.find('input[name=cid]').val(_cid);
@@ -223,7 +223,7 @@ $(function() {
 			var _cid = ( _id.indexOf('subcat') != -1 ) ? _item.closest('.body').prev('.head').find('h5 input').attr('id').replace('cat_','') : _item.closest('.head').find('input').attr('id').replace('cat_','');
 			var _sid = ( _id.indexOf('subcat') != -1 ) ? _item.closest('.head').find('input').attr('id').replace('subcat_','') : 0;
 
-			jPrompt('Edite abaixo o título do item e clique em OK para cadastrar<br>ou em CANCEL para sair dessa janela.', _item.val(), 'Prompt Dialog', function(_name) {
+			jPrompt('Edite abaixo o tÃ­tulo do item e clique em OK para cadastrar<br>ou em CANCEL para sair dessa janela.', _item.val(), 'Prompt Dialog', function(_name) {
 				if( _name ){
 					_form.find('input[name=nvg]').val('edit');
 					_form.find('input[name=cid]').val(_cid);
@@ -247,7 +247,7 @@ $(function() {
 
 			if( _cid > 0 && _sid == 0 ){
 				if( _item.closest('.head').next('.body').has('div').length > 0 ){
-					jConfirm('<strong style="color:#eac572; font-size:15px">ATENÇÂO:</strong><br><strong>'+_item.val()+'</strong> possui itens atrelado a ele e que <br>não poderão ser recuperados após confirmar essa ação.<br> Você deseja realmente excluir este item?', 'Excluir Item?', function(_index) {
+					jConfirm('<strong style="color:#eac572; font-size:15px">ATENÃ‡Ã‚O:</strong><br><strong>'+_item.val()+'</strong> possui itens atrelado a ele e que <br>nÃ£o poderÃ£o ser recuperados apÃ³s confirmar essa aÃ§Ã£o.<br> VocÃª deseja realmente excluir este item?', 'Excluir Item?', function(_index) {
 						if(_index){
 							_form.find('input[name=nvg]').val('delete');
 							_form.find('input[name=cid]').val(_cid);
@@ -257,7 +257,7 @@ $(function() {
 						}
 					});
 				}else{
-					jConfirm('Você deseja realmente excluir <strong>'+_item.val()+'</strong>?', 'Excluir Item?', function(_index) {
+					jConfirm('VocÃª deseja realmente excluir <strong>'+_item.val()+'</strong>?', 'Excluir Item?', function(_index) {
 						if(_index){
 							_form.find('input[name=nvg]').val('delete');
 							_form.find('input[name=cid]').val(_cid);
@@ -268,7 +268,7 @@ $(function() {
 					});
 				}
 			}else{
-				jConfirm('Você deseja realmente excluir <strong>'+_item.val()+'</strong>?', 'Excluir Item?', function(_index) {
+				jConfirm('VocÃª deseja realmente excluir <strong>'+_item.val()+'</strong>?', 'Excluir Item?', function(_index) {
 					if(_index){
 						_form.find('input[name=nvg]').val('delete');
 						_form.find('input[name=cid]').val(_cid);
@@ -305,7 +305,7 @@ $(function() {
 
 	$('.pics.preview.products .actions a.delete').click(function(){
 		var elemThis = jQuery(this);
-		jConfirm('Você quer realmente excluir este Produto?', 'Excluir Produto?', function(r) {
+		jConfirm('VocÃª quer realmente excluir este Produto?', 'Excluir Produto?', function(r) {
 			if(r){
 				elemThis.closest('li').fadeOut('slow',function(){
 					if( elemThis.closest('ul').find('li').length === 0 ){
@@ -338,7 +338,7 @@ $(function() {
 
 	$(".deleteUser").click( function() {
 		var elemThis = jQuery(this);
-		jConfirm('Você quer realmente excluir este Usuário?', 'Excluir Usuário?', function(r) {
+		jConfirm('VocÃª quer realmente excluir este UsuÃ¡rio?', 'Excluir UsuÃ¡rio?', function(r) {
 			if(r){
 				elemThis.closest('#frm_User').find('input[name=nvg]').val('delete_user').closest('#frm_User').submit(); 
 			}
@@ -347,7 +347,7 @@ $(function() {
 	
 	$(".deleteBanner").click( function() {
 		var elemThis = jQuery(this);
-		jConfirm('Você quer realmente excluir este Banner?', 'Excluir Banner?', function(r) {
+		jConfirm('VocÃª quer realmente excluir este Banner?', 'Excluir Banner?', function(r) {
 			if(r){
 				elemThis.closest('form').find('input[name=nvg]').val('delete_banner').closest('form').submit();
 			}
@@ -356,7 +356,7 @@ $(function() {
 
 	$(".deleteProduct").click( function() {
 		var elemThis = jQuery(this);
-		jConfirm('Você quer realmente excluir este Produto?', 'Excluir Produto?', function(r) {
+		jConfirm('VocÃª quer realmente excluir este Produto?', 'Excluir Produto?', function(r) {
 			if(r){
 				elemThis.closest('form').find('input[name=nvg]').val('delete_product').closest('form').submit();
 			}
@@ -377,7 +377,7 @@ $(function() {
 	
 	$(".pics .actions a.deleteBanner").click( function() {
 		var elemThis = jQuery(this);
-		jConfirm('Você quer realmente excluir este Banner?', 'Excluir Banner?', function(r) {
+		jConfirm('VocÃª quer realmente excluir este Banner?', 'Excluir Banner?', function(r) {
 			if(r){
 				elemThis.closest('form').find('input[name=nvg]').val('delete_banner').closest('form').find('input[name=bid]').val(elemThis.attr('bid')).closest('form').submit();
 			}

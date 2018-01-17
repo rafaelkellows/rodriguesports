@@ -28,7 +28,7 @@
 			<section class="product msgBox">
 				<p>
 					<strong title="Aguarde">Aguarde...</strong><br>
-					<span>Seu pedido está sendo processado.</span>
+					<span>Seu pedido estÃ¡ sendo processado.</span>
 				</p>
 			</section>		
 			<?php
@@ -66,8 +66,8 @@
 					<!--dd>
 						<span><img src="images/taylorMade.jpg" alt="" /></span>
 						<article>
-							<p>A <strong>SPATULA</strong> é uma empresa criada cuidadosamente para que você possa oferecer presentes diferenciados, criativos e desenvolvidos especialmente para seus clientes. Toda a produção é elaborada segundo o conceito de taylor made, de forma que eles percebem todo o cuidado e o diferencial em todos os detalhes.</p>
-							<p>É o verdadeiro trabalho de personalização, em que a <strong>SPATULA</strong> vai entender em profundidade as necessidades de cada cliente e seus presenteados. A partir daí é desenvolvido um projeto especial de presente, que atenda e surpreenda todas as expectativas. O cliente acompanha todo o processo de criação e sabe que o produto final é feito especialmente para ele.</p>
+							<p>A <strong>SPATULA</strong> Ã© uma empresa criada cuidadosamente para que vocÃª possa oferecer presentes diferenciados, criativos e desenvolvidos especialmente para seus clientes. Toda a produÃ§Ã£o Ã© elaborada segundo o conceito de taylor made, de forma que eles percebem todo o cuidado e o diferencial em todos os detalhes.</p>
+							<p>Ã‰ o verdadeiro trabalho de personalizaÃ§Ã£o, em que a <strong>SPATULA</strong> vai entender em profundidade as necessidades de cada cliente e seus presenteados. A partir daÃ­ Ã© desenvolvido um projeto especial de presente, que atenda e surpreenda todas as expectativas. O cliente acompanha todo o processo de criaÃ§Ã£o e sabe que o produto final Ã© feito especialmente para ele.</p>
 						</article>
 					</dd-->
 				<?php
@@ -75,7 +75,7 @@
 
 	                if ($oSlctProds->rowCount() > 0) {
 	                	echo '<section class="product_features">';
-	                	echo '	<p><strong>Veja abaixo o que separamos para você:</strong><br><br></p>';
+	                	echo '	<p><strong>Veja abaixo o que separamos para vocÃª:</strong><br><br></p>';
 	                	echo '	<div class="filtering">';
 	                	echo '		<ul>';
 	                	echo '			<li class="active"><a class="block" title="Exibir em blocos" href="javascript:void(0);">Block</a></li>';
@@ -113,18 +113,46 @@
 	                        echo '		<a href="./produto.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'">'.$prod['title'].'</a></dt>';
 	                        echo '	</dt>';
 	                        echo '	<dd>';
-													$oImage = $oConn->SQLselector("*","galeria","id='".$prod['capa']."'",'');
+							$oImage = $oConn->SQLselector("*","galeria","id='".$prod['capa']."'",'');
 	                        echo '		<span><i class="fa fa-check-circle" aria-hidden="true"></i>Item Adicionado</span>';
-													echo '		<a class="ilustra" href="./produto.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'"><img src="'.( ( $oImage->rowCount() > 0 ) ? $oImage->fetch(PDO::FETCH_ASSOC)['src']: 'images/produtos/logo_util.jpg').'" alt="" /></a>';
+							echo '		<a class="ilustra" href="./produto.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'"><img src="'.( ( $oImage->rowCount() > 0 ) ? $oImage->fetch(PDO::FETCH_ASSOC)['src']: 'images/produtos/logo_util.jpg').'" alt="" /></a>';
 	                        echo '		<a class="desc" href="./produto.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'">'.$prod['resume'].'</a>';
-	                        //echo '		<p><a href="./produto.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'">'.$prod['resume'].'</a></p>';
+	                        //echo '	<p><a href="./produto.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'">'.$prod['resume'].'</a></p>';
 	                        if( $prod['max_price'] ){
 	                        	echo '	<p class="lbl"><strong>R$'.$prod['max_price'].'</strong><em> unidade</em></p> ';
-														echo '  <a class="btn-buy btn-color-E" href="checkout.php?id_prod='.$prod['id'].'&min=0&max='.$prod['max_price'].'&weight='.$prod['weight'].'" alt="Adicionar ao Carrinho">Adicionar ao Carrinho</a>';
-							            }else{
-														//echo '  <input class="btn-short" type="button" alt="Solicitar Orçamento" value="Solicitar Orçamento" />';
+								
+								$string = $prod['size'];
+								$array = explode(',', $string);
+								echo "<ul class='size'>";
+								echo "	<em>" . ( ( stripos($prod['size'], 'ml') === false) ? "Tamanho" : "Capacidade") . " disponÃ­vel</em>";
+								foreach($array as $size){
+									echo "<li class='". (($size=='') ? "unico" : null ) ."'>". (($size!='') ? $size : "Ãºnico")  . '</li>';
+								}
+								echo "</ul>";
+
+		                        $colors = $oConn->SQLselector("*","colors","pid='".$prod['id']."'",'id ASC');
+		                        if ($colors->rowCount() > 0) {
+		                			echo "<ul class='color'>";
+									echo "	<em>Cor disponÃ­vel</em>";
+									while ( $row_colors = $colors->fetch(PDO::FETCH_ASSOC) ) {
+										if($row_colors['color']!=''){
+											echo "<li style='background-color:#".$row_colors['color']."; ". (( $row_colors['color'] == 'ffffff') ? 'border:1px solid #f4f4f4;' : '' )."' title='".$row_colors['label']."'>".$row_colors['color']."</li>";
+										}
+									}
+		                			echo "</ul>";
+		                            
+		                        }else{
+		                			echo "<ul class='color'>";
+									echo "	<em>Cor disponÃ­vel</em>";
+									echo "	<li class='diverso'>diverso</li>";
+		                			echo "</ul>";
+		                        }
+
+								echo '<br /><a class="btn-buy btn-color-E" href="checkout.php?id_prod='.$prod['id'].'&min=0&max='.$prod['max_price'].'&weight='.$prod['weight'].'" alt="Adicionar ao Carrinho">Adicionar ao Carrinho</a>';
+							}else{
+								//echo '  <input class="btn-short" type="button" alt="Solicitar OrÃ§amento" value="Solicitar OrÃ§amento" />';
 	                        }
-													echo '  	<a class="btn-buy btn-color-B" href="orcamento.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'&capa='.$prod['capa'].'" alt="Solicitar Orçamento">Solicitar Orçamento</a>';
+							echo '  	<a class="btn-buy btn-color-B" href="orcamento.php?id_prod='.$prod['id'].'&cat='.$prod['cid'].'&sub='.$prod['sid'].'&capa='.$prod['capa'].'" alt="Solicitar OrÃ§amento">Solicitar OrÃ§amento</a>';
 	                        echo '	</dd>';
 	                        echo '</dl>';
 	                    }

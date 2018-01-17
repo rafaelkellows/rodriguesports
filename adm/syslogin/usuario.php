@@ -57,7 +57,7 @@ class Usuario {
     }
     public function setVisited($visited) {
         $date = date_create($visited);
-        $this->visited = date_format($date, 'd/m/y') . ' às ' .date_format($date, 'G:ia') ; 
+        $this->visited = date_format($date, 'd/m/y') . ' Ã s ' .date_format($date, 'G:ia') ; 
     }
 }
 ?>

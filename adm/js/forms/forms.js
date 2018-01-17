@@ -222,20 +222,39 @@
 			var $ul = $('ul', $wrapper).css('width',$select.width()).hide();
 			/* Now we add the options */
 			$('option', this).each(function(i){
-				var oLi = $('<li><a href="#" index="'+ i +'">'+ $(this).html() +'</a></li>');
+				var oLi = $('<li><a href="#" index="'+ i +'" a-value="'+ $(this).val() +'">'+ $(this).html() +'</a></li>');
 				$ul.append(oLi);
 			});
 			
 			/* Add click handler to the a */
 			$ul.find('a').click(function(){
-					$('a.selected', $wrapper).removeClass('selected');
-					$(this).addClass('selected');	
-					/* Fire the onchange event */
-					if ($select[0].selectedIndex != $(this).attr('index') && $select[0].onchange) { $select[0].selectedIndex = $(this).attr('index'); $select[0].onchange(); }
-					$select[0].selectedIndex = $(this).attr('index');
+				$('a.selected', $wrapper).removeClass('selected');
+				$(this).addClass('selected');	
+				/* Fire the onchange event */
+				if ($select[0].selectedIndex != $(this).attr('index') && $select[0].onchange) { $select[0].selectedIndex = $(this).attr('index'); $select[0].onchange(); }
+				$select[0].selectedIndex = $(this).attr('index');
+				if( $select.attr('name') == 'labelColor' ){
+					$('span:eq(0)', $wrapper).html($(this).html() + '<em style="background-color: #'+ $(this).attr('a-value') +' "></em>');
+					$(this).closest('#labelColorContainer').parent().next().find('.colorpick').val( ( ($(this).attr('a-value')!=0) ? $(this).attr('a-value') : '') ).parent().find('.color_label').show().val( ( ($(this).attr('a-value')!=0) ? $(this).html() : '') );
+					$(this).closest('#labelColorContainer').parent().next().find('.colorpick').next().next().attr('style','background-color:#'+$(this).attr('a-value'));
+					
+					$('.moreFields.colors ul li > input.color_label').blur(function() {
+						$(this).closest('li').find('.formError').remove();
+						if( $(this).val() == '' ){
+	                        var _htmlError = '<div class="formError" style="top: -28px; right: -130px; left: initial;">';
+		                        _htmlError += '	<div class="formErrorContent">* Este campo é obrigatório<br></div>';
+		                        _htmlError += '	<div class="formErrorArrow"><div class="line10"><!-- --></div><div class="line9"><!-- --></div><div class="line8"><!-- --></div><div class="line7"><!-- --></div><div class="line6"><!-- --></div><div class="line5"><!-- --></div><div class="line4"><!-- --></div><div class="line3"><!-- --></div><div class="line2"><!-- --></div><div class="line1"><!-- --></div></div>';
+		                        _htmlError += '</div>';
+							$(this).focus()
+							$(_htmlError).insertBefore( $(this) );
+						}
+					});
+
+				}else{
 					$('span:eq(0)', $wrapper).html($(this).html());
-					$ul.hide();
-					return false;
+				}
+				$ul.hide();
+				return false;
 			});
 			/* Set the default */
 			$('a:eq('+ this.selectedIndex +')', $ul).click();

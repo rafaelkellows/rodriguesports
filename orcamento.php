@@ -15,7 +15,7 @@
 			//$aut->expulsar();
 		}
 
-		$page_title = 'Faça seu Orçamento';
+		$page_title = 'FaÃ§a seu OrÃ§amento';
 		include 'inc/head.php';
 	?>		
 	<body class="chn-budget">
@@ -41,7 +41,7 @@
 			<aside>
 				<ul>
 					<li><a href="./">Home</a></li>
-					<li>Faça seu Orçamento</li>
+					<li>FaÃ§a seu OrÃ§amento</li>
 				</ul>
 				<dl>
 					<dt><h2 class="bgTitle">A MELHOR FORMA DE ESTAR PRESENTE</h2></dt>
@@ -50,10 +50,10 @@
 							<img src="<?php echo $prodCapa ?>" alt="A MELHOR FORMA DE ESTAR PRESENTE" />
 						</span>
 						<article>
-							<p>Preencha os campos abaixo para solicitar seu orçamento.</p>
+							<p>Preencha os campos abaixo para solicitar seu orÃ§amento.</p>
 							<form id="budget" action="/" method="post">
 								<fieldset>
-									<legend>Faça seu Orçamento</legend>
+									<legend>FaÃ§a seu OrÃ§amento</legend>
 									<p class="msg">Aqui vem a mensagem</p>
 									<ul>
 										<li style="width:50%; display:inline-block">
@@ -98,18 +98,18 @@
 										</li>
 										<li style="width:49.6%; display:inline-block;">
 											<label>Telefone (<em style="font-size:13px">opcional</em>):</label>
-											<input name="phone" placeholder="Digite um número de telefone fixo" type="text" value="" />
+											<input name="phone" placeholder="Digite um nÃºmero de telefone fixo" type="text" value="" />
 										</li>
 										<li style="width:49.6%; display:inline-block;">
 											<label>Celular (<em style="font-size:13px">opcional</em>):</label>
-											<input name="cellphone" placeholder="Digite seu número de celular" type="text" value="" />
+											<input name="cellphone" placeholder="Digite seu nÃºmero de celular" type="text" value="" />
 										</li>
 										<li>
 											<label>Mensagem (<em style="font-size:13px">opcional</em>):</label>
 											<textarea name="message"></textarea>
 										</li>
 										<li>
-											<input class="btn-color-A" type="submit" value="enviar orçamento" >
+											<input class="btn-color-A" type="submit" value="enviar orÃ§amento" >
 										</li>
 									</ul>
 								</fieldset>

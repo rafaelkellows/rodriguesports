@@ -9,7 +9,7 @@
 			$('#bannerPreview ul li').html('<img src="../'+$("#output").html()+'" alt="">');
 		}
 		$('#fileUploader #src').val($("#output").html());
-		$("#output").html('<em style="font-size:11px;"><font style="font-style:normal;">Importante:</font> essa imagem sÛ ser· armazenada apÛs clicar no bot„o "Salvar Dados"</em>');
+		$("#output").html('<em style="font-size:11px;"><font style="font-style:normal;">Importante:</font> essa imagem s√≥ ser√° armazenada ap√≥s clicar no bot√£o "Salvar Dados"</em>');
 
 	}
 
@@ -21,7 +21,7 @@
 			
 			if( !$('#FileInput').val() ) //check empty input filed
 			{
-				$("#output").html('<em style="font-size:11px;"><font style="font-style:normal;">Ops, </font>vocÍ precisa selecionar alguma imagem.</em>'); 
+				$("#output").html('<em style="font-size:11px;"><font style="font-style:normal;">Ops, </font>voc√™ precisa selecionar alguma imagem.</em>'); 
 				return false
 			}
 			
@@ -97,7 +97,7 @@
 		_jcrop_html += '<div id="debug">';
 		_jcrop_html += '	<input type="hidden" id="x" size="5" disabled /><input type="hidden" id="x2" size="5" disabled />';
 		_jcrop_html += '	<input type="hidden" id="y" size="5" disabled /><input type="hidden" id="y2" size="5" disabled />';
-		_jcrop_html += '	<p><strong>Dimensıes</strong> <input type="text" id="h" size="5" disabled /> x <input type="text" id="w" size="5" disabled /></p>';
+		_jcrop_html += '	<p><strong>Dimens√µes</strong> <input type="text" id="h" size="5" disabled /> x <input type="text" id="w" size="5" disabled /></p>';
 		_jcrop_html += '</div>';
 
  		$("#output").html(_jcrop_html);
@@ -143,7 +143,7 @@
 					$('.pics.preview.products .actions a.delete').click(function(){
 						var elemThis = jQuery(this);
 						var _ul = jQuery(this).closest('ul');
-						jConfirm('VocÍ quer realmente excluir este Produto?', 'Excluir Produto?', function(r) {
+						jConfirm('Voc√™ quer realmente excluir este Produto?', 'Excluir Produto?', function(r) {
 							if(r){
 								elemThis.closest('li').fadeOut('slow',function(){
 									$(this).remove();
@@ -157,7 +157,7 @@
 			
 					//$('#div-jcrop').html( '<img src="' + img + '?' + Math.random() + '" width="'+$('#w').val()+'" height="'+$('#h').val()+'" />' );
 					$('#FileInput').val('');
-					$('#div-jcrop').html('<p class="nSuccess" style="text-align:center; margin-top:10px; ">Imagem cadastrada com sucesso! <br><em style="font-size:11px;"><font style="font-style:normal;">Importante:</font> A imagem sÛ ser· armazenada no banco apÛs clicar no bot„o "Salvar Dados"</em></p>');
+					$('#div-jcrop').html('<p class="nSuccess" style="text-align:center; margin-top:10px; ">Imagem cadastrada com sucesso! <br><em style="font-size:11px;"><font style="font-style:normal;">Importante:</font> A imagem s√≥ ser√° armazenada no banco ap√≥s clicar no bot√£o "Salvar Dados"</em></p>');
 					$('#debug').remove();
 					jQuery('html, body').animate({
 					    scrollTop: jQuery("#productsPreview").first().offset().top-80

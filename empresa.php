@@ -32,12 +32,12 @@
 					<li>A Empresa</li>
 				</ul>
 				<dl>
-					<dt><h2 class="bgTitle">NOSSO TRABALHO - Presente que marca a memória Futura</h2></dt>
+					<dt><h2 class="bgTitle">NOSSO TRABALHO - Presente que marca a memÃ³ria Futura</h2></dt>
 					<dd>
 						<span><img src="images/ilustraTrabalho.jpg" alt="" /></span>
 						<article>
-							<p>A <strong>SPATULA</strong> é uma empresa criada para oferecer a experiência do prazer de ser presenteado. Sua missão é usar a criatividade para se destacar no segmento de presentes personalizados, entregando sempre brindes com qualidade.</p>
-							<p>O objetivo da empresa é se consolidar como referência no mercado, com alta eficiência financeira e confiança do consumidor. O presente <strong>SPATULA</strong> é aquele que marca a memória futura.</p>
+							<p>A <strong>SPATULA</strong> Ã© uma empresa criada para oferecer a experiÃªncia do prazer de ser presenteado. Sua missÃ£o Ã© usar a criatividade para se destacar no segmento de presentes personalizados, entregando sempre brindes com qualidade.</p>
+							<p>O objetivo da empresa Ã© se consolidar como referÃªncia no mercado, com alta eficiÃªncia financeira e confianÃ§a do consumidor. O presente <strong>SPATULA</strong> Ã© aquele que marca a memÃ³ria futura.</p>
 						</article>
 					</dd>
 				</dl>
@@ -46,18 +46,18 @@
 					<dd>
 						<span><img src="images/ilustraNossaFilosofia.jpg" alt="" /></span>
 						<article>
-							<p>O trabalho da <strong>SPATULA</strong> é desenvolvido em torno de três pilares que dão sustentação e sentido a toda operação.</p>
+							<p>O trabalho da <strong>SPATULA</strong> Ã© desenvolvido em torno de trÃªs pilares que dÃ£o sustentaÃ§Ã£o e sentido a toda operaÃ§Ã£o.</p>
 							<p>
 								<strong>BELEZA</strong><BR>
-								Os presentes são feitos para impressionar pelo visual e pela qualidade do acabamento. São produtos que se destacam pelo bom gosto e surpreendem sempre de forma positiva quem recebe.
+								Os presentes sÃ£o feitos para impressionar pelo visual e pela qualidade do acabamento. SÃ£o produtos que se destacam pelo bom gosto e surpreendem sempre de forma positiva quem recebe.
 							</p>
 							<p>
-								<strong>ORGANIZAÇÃO</strong><BR>
-								A equipe enxuta está organizada para atender os pedidos com máxima eficiência, atuando sempre dentro do prazo, em busca das melhores opções para você presentear com emoção e a certeza da entrega.
+								<strong>ORGANIZAÃ‡ÃƒO</strong><BR>
+								A equipe enxuta estÃ¡ organizada para atender os pedidos com mÃ¡xima eficiÃªncia, atuando sempre dentro do prazo, em busca das melhores opÃ§Ãµes para vocÃª presentear com emoÃ§Ã£o e a certeza da entrega.
 							</p>
 							<p>
 								<strong>ESTRUTURA</strong><BR>
-								A forma de trabalhar da <strong>SPATULA</strong> tem como objetivo entregar qualidade e transparência nos negócios. Toda a cadeia de produção é formada com um rigoroso controle de cada peça que é produzida em nosso sistema taylor made.
+								A forma de trabalhar da <strong>SPATULA</strong> tem como objetivo entregar qualidade e transparÃªncia nos negÃ³cios. Toda a cadeia de produÃ§Ã£o Ã© formada com um rigoroso controle de cada peÃ§a que Ã© produzida em nosso sistema taylor made.
 							</p>
 						</article>
 					</dd>
@@ -67,8 +67,8 @@
 					<dd>
 						<span><img src="images/ilustraSocial.jpg" alt="" /></span>
 						<article>
-							<p>A <strong>SPATULA</strong> acredita que todos podem contribuir para construção de uma sociedade mais justa e feliz. Por isso, a cada dois meses escolhe uma instituição para fazer doações de brindes personalizados que poderão ajudar no desempenho de suas atividades.</p>
-							<p>Se você tem uma instituição para indicar acesse nosso site e veja como funciona este projeto.</p>
+							<p>A <strong>SPATULA</strong> acredita que todos podem contribuir para construÃ§Ã£o de uma sociedade mais justa e feliz. Por isso, a cada dois meses escolhe uma instituiÃ§Ã£o para fazer doaÃ§Ãµes de brindes personalizados que poderÃ£o ajudar no desempenho de suas atividades.</p>
+							<p>Se vocÃª tem uma instituiÃ§Ã£o para indicar acesse nosso site e veja como funciona este projeto.</p>
 						</article>
 					</dd>
 				</dl>

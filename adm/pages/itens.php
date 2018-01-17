@@ -25,13 +25,13 @@
                 
                 case 3:
                     echo '<div class="nNote nSuccess hideit">';
-                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluÌdos corretamente.</p>';
+                    echo '  <p><strong>SUCESSO: </strong>os dados foram exclu√≠dos corretamente.</p>';
                     echo '</div>';
                     break;
                 
                 case 4:
                     echo '<div class="nNote nFailure hideit">';
-                    echo '  <p><strong>FALHOU: </strong>Este banner j· foi cadastrado. Por favor, preencha com novos dados.</p>';
+                    echo '  <p><strong>FALHOU: </strong>Este banner j√° foi cadastrado. Por favor, preencha com novos dados.</p>';
                     echo '</div>';
                     break;
                 
@@ -49,7 +49,7 @@
 
         <!-- Blockquote -->
         <blockquote class="first">
-            Clique no Ìcone <img src="images/icons/dark/pencil.png" alt="" style="display:inline-block; vertical-align:middle;" /> ou tÌtulo do item para edit·-lo ou<br>no bot„o "Inserir Novo Produto" ao final da p·gina para adicionar um novo. 
+            Clique no √≠cone <img src="images/icons/dark/pencil.png" alt="" style="display:inline-block; vertical-align:middle;" /> ou t√≠tulo do item para edit√°-lo ou<br>no bot√£o "Inserir Novo Produto" ao final da p√°gina para adicionar um novo. 
         </blockquote>
         <div class="aligncenter first">
             <a href="page.php?nvg=item" title="" class="btnIconLeft mr10 mt5"><img src="images/icons/dark/postcard.png" alt="" class="icon" /><span>Inserir Novo Produto</span></a>
@@ -65,10 +65,10 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>TÌtulo</th>
+                                <th>T√≠tulo</th>
                                 <th>Categoria</th>
                                 <th>Subcategoria</th>
-                                <th>PreÁo (R$)</th>
+                                <th>Pre√ßo (R$)</th>
                                 <th>Modificado em</th>
                                 <th>Status</th>
                                 <th>--</th>
@@ -104,7 +104,7 @@
                                 echo '</tr>';
                                 }
                             }else{
-                                "N„o h· Banner(s) cadastrado(s)!";
+                                "N√£o h√° Banner(s) cadastrado(s)!";
                             }
                         ?>
                         </tbody>

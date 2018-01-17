@@ -42,7 +42,7 @@
 		    	$all = $oConn->SQLdeleter("usuarios","id='".$id."'");
 
 		    	if($all){
-		    		header('location: ../page.php?nvg=user&msg=3');
+		    		header('location: ../page.php?nvg=users&msg=3');
 		    	}
 		    	else{
 		    		header('location: ../page.php?nvg=user&msg=0');

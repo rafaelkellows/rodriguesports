@@ -1,7 +1,7 @@
         <div class="leftNav">
             <ul id="menu"> 
-                <li class="dash"><a href="page.php?nvg=home" title="In�cio" <?php if ( $_GET["nvg"] == 'home' ) print 'class="active"'; ?>><span>In�cio</span></a></li>
-                <li class="contacts"><a href="javascript:void(0);" title="Usu�rios" class="exp <?php if ( $_GET["nvg"] == 'users' || $_GET["nvg"] == 'user'  ) print 'active'; ?>"><span>Usu�rios</span></a>
+                <li class="dash"><a href="page.php?nvg=home" title="Início" <?php if ( $_GET["nvg"] == 'home' ) print 'class="active"'; ?>><span>Início</span></a></li>
+                <li class="contacts"><a href="javascript:void(0);" title="Usuários" class="exp <?php if ( $_GET["nvg"] == 'users' || $_GET["nvg"] == 'user'  ) print 'active'; ?>"><span>Usuários</span></a>
                     <ul class="sub<?php if ( ($_GET["nvg"] != 'users') && ($_GET["nvg"] != 'user') ) print ' hide'; ?>">
                         <li><a href="page.php?nvg=users"title="">Exibir Lista</a></li>
                         <li><a href="page.php?nvg=user"title="">Adicionar Item</a></li>
@@ -19,6 +19,11 @@
                         <!--li><a href="page.php?nvg=prod_destaque" title="Destaques">Destaques</a></li-->
                         <li><a href="page.php?nvg=itens"title="">Exibir Lista</a></li>
                         <li><a href="page.php?nvg=item"title="">Adicionar Item</a></li>
+                    </ul>
+                </li>
+                <li class="cog"><a href="javascript:void(0);" title="Configuração" class="exp <?php if ( $_GET["nvg"] == 'settings' || $_GET["nvg"] == 'settings' ) print 'active'; else print 'inactive'; ?>"><span>Configuração</span></a>
+                    <ul class="sub<?php if ( $_GET["nvg"] != 'itens' && $_GET["nvg"] != 'item' ) print ' hide'; ?>">
+                        <!--li><a href="page.php?nvg=prod_destaque" title="Destaques">Destaques</a></li-->
                     </ul>
                 </li>
             </ul>

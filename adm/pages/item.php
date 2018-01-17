@@ -6,13 +6,13 @@
         $row = $all->fetch(PDO::FETCH_ASSOC);
         $hiddenVal = 'produto'; 
         $btValue = 'Salvar Dados';
-        $blockquoteValue = 'Produto criado em '.date_format(date_create($row['created']), 'd/m/y').' às '.date_format(date_create($row['created']), 'G:ia').' e alterado em '.date_format(date_create($row['modified']), 'd/m/y').' às '.date_format(date_create($row['modified']), 'G:ia').'.';
+        $blockquoteValue = 'Produto criado em '.date_format(date_create($row['created']), 'd/m/y').' Ã s '.date_format(date_create($row['created']), 'G:ia').' e alterado em '.date_format(date_create($row['modified']), 'd/m/y').' Ã s '.date_format(date_create($row['modified']), 'G:ia').'.';
     }else{
         $pid = 0;
         $row = (!isset($_GET["src"]) ? 0 : Array ( 'id' => 0, 'alt' => $_GET["alt"],'title' => $_GET["title"], 'description' => $_GET["description"], 'link' => $_GET["link"], 'target' => $_GET["target"], 'align' => $_GET["align"], 'status' => $_GET["status"] ) );
         $hiddenVal = 'new_product';
         $btValue = 'Inserir Dados';
-        $blockquoteValue = '<strong>Olá</strong>, preencha o formulário abaixo corretamente.';
+        $blockquoteValue = '<strong>OlÃ¡ '. $usuario->getName() .'</strong>, preencha o formulÃ¡rio abaixo corretamente.';
     }
     $submitReturn = (!isset($_GET["msg"]) ? -1 : $_GET["msg"]);
 ?>
@@ -39,13 +39,13 @@
                 
                 case 3:
                     echo '<div class="nNote nSuccess hideit">';
-                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluídos corretamente.</p>';
+                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluÃ­dos corretamente.</p>';
                     echo '</div>';
                     break;
                 
                 case 4:
                     echo '<div class="nNote nFailure hideit">';
-                    echo '  <p><strong>FALHOU: </strong>Este banner já foi cadastrado. Por favor, preencha com novos dados.</p>';
+                    echo '  <p><strong>FALHOU: </strong>Este banner jÃ¡ foi cadastrado. Por favor, preencha com novos dados.</p>';
                     echo '</div>';
                     break;
                 
@@ -71,7 +71,7 @@
                     <input type="hidden" name="pid" value="<?php print $row['id']; ?>" />
 
                     <div class="rowElem">
-                        <label>Título:</label>
+                        <label>TÃ­tulo:</label>
                         <div class="formRight">
                             <input type="text" class="validate[required]" name="title" id="title" value='<?php print $row['title']; ?>' />
                         </div>
@@ -82,20 +82,15 @@
                         <label>Chamada:</label>
                         <div class="formRight">
                             <textarea class="validate[required]" maxlength="100" name="resume" id="resume" rows="3" cols=""><?php print $row['resume']; ?></textarea>
-                            <span style="font-size:11px; padding: 2px;">Digite um resumo de até 100 caracteres.</span>
+                            <span style="font-size:11px; padding: 2px;">Digite um resumo de atÃ© 100 caracteres.</span>
                         </div>                
                         <div class="fix"></div>
                     </div>
                             
                     <div class="rowElem">
-                        <label>Descrição:</label>
-                        <!--div class="formRight">
-                            <textarea class="wysiwyg validate[required]" name="description" id="description" rows="5" cols=""><?php print $row['description']; ?></textarea>                
-                            <textarea class="validate[required]" maxlength="100" name="description" id="description" rows="5" cols=""></textarea>
-                            <span style="font-size:11px; padding: 2px;"><strong>Dica de estilo:</strong> Use 'strong/strong' para aplicar <strong>Negrito</strong> no texto e 'em/em' para aplicar <em>Itálico</em>.</span>
-                        </div-->                
+                        <label>DescriÃ§Ã£o:</label>
                         <textarea class="wysiwyg validate[required]" name="description" id="description" rows="5" cols=""><?php print $row['description']; ?></textarea>
-                        <span style="font-size:11px; display: inline-block; padding: 10px 2px 2px;"><strong>Importante:</strong> não copie e cole um conteúdo diretamente no editor. Isso pode alterar no resultado final.</span>
+                        <span style="font-size:11px; display: inline-block; padding: 10px 2px 2px;"><strong>Importante:</strong> nÃ£o copie e cole um conteÃºdo diretamente no editor. Isso pode alterar no resultado final.</span>
                         <div class="fix"></div>
                     </div>
                             
@@ -199,39 +194,54 @@
                     </div>
 
                     <div class="rowElem">
-                        <label>Cores disponíveis:</label>
+                        <label>Cores disponÃ­veis:</label>
                         <div class="formRight moreFields colors">
                             <ul>
                             <?php 
                                 $colors = $oConn->SQLselector("*","colors","pid='".$pid."'",'id ASC');
                                 if ($colors->rowCount() > 0) {
                                     while ( $row_colors = $colors->fetch(PDO::FETCH_ASSOC) ) {
-                                    echo '<li>';
-                                    echo '  <input type="hidden" name="colors[]" value="'.$row_colors['color'].'" />';
-                                    echo '  <input type="text" name="color" disabled value="'.$row_colors['color'].'" />';
-
-                                    echo '  <input type="hidden" name="colors_labels[]" value="'.$row_colors['label'].'" />';
-                                    echo '  <input style="width:130px !important;" type="text" name="color_label" value="'.$row_colors['label'].'" />';
-                                    
-                                    echo '  <span style="background-color:#'.$row_colors['color'].'">&nbsp;</span>';
-                                    /*echo '  <input class="color_label" type="text" placeholder="Defina aqui um nome para essa cor" name="color_label[]" value="'.$row_colors['label'].'" />';*/
-                                    /*echo '  <select name="lbl_color">';
-                                    echo '      <option value="0">Cores adicionadas</option>';
-                                    $slc_color = $oConn->SQLselector("*","colors","","");
-                                    while ( $row_slc_color = $slc_color->fetch(PDO::FETCH_ASSOC) ) {
-                                        if(!empty($row_slc_color['label'])){
-                                            echo '<option value="'.$row_slc_color['color'].'">'.$row_slc_color['label'].'</option>';
-                                        }
-                                    }
-                                    echo '  </select>';
-                                    echo '  <input class="color_label" type="text" placeholder="Defina aqui um nome para essa cor" name="color_label[]" value="'.$row_colors['label'].'" />';*/
-                                    echo '</li>';
-                                    echo '<li class="sep"><a class="remove" href="javascript:void(0);"><img src="images/icons/dark/close.png" alt="Remover cor" /></a></li>';
-                                    echo '<li class="line">&nbsp;</li>';
+                                        echo '<li style="width:auto;">';
+                                        echo '  <input type="hidden" name="colors[]" value="'.$row_colors['color'].'" />';
+                                        echo '  <input type="text" name="color" disabled value="'.$row_colors['color'].'" />';
+                                        echo '  <span style="background-color:#'.$row_colors['color'].'">&nbsp;</span>';
+                                        echo '  <span style="width:auto; font-size: 12px; background:none; padding:1px 5px;">'.( ( $row_colors['label'] != '' ) ? $row_colors['label'] : $row_colors['color'] ).'</span>';
+                                        echo '  <input type="hidden" name="color_label[]" class="color_label" placeholder="Defina aqui um nome para essa cor" value="'.( ( $row_colors['label'] != '' ) ? $row_colors['label'] : '' ).'" />';
+                                        echo '</li>';
+                                        echo '<li class="sep"><a class="remove" href="javascript:void(0);"><img src="images/icons/dark/close.png" alt="Remover cor" /></a></li>';
                                     }
                                 }
                             ?>
-                                <li class="sep"><a class="add" href="javascript:void(0);"><img src="images/icons/dark/add.png" alt="Adicionar mais cores" /></a></li>
+                                <li class="line">&nbsp;</li>
+                                <li style="width: auto; float: none; border-top: 1px solid #e7e7e7; padding-top: 10px;">
+                                    <div id="labelColorContainer">                        
+                                        <select name="labelColor" class="validate[required]" style="width:300px">
+                                            <option value="0">Selecione uma cor jÃ¡ cadastrada</option>
+                                            <?php 
+                                                $colors = $oConn->SQLselector("*","colors","pid!='".$pid."'",'label ASC');
+                                                if ($colors->rowCount() > 0) {
+                                                    while ( $row_colors = $colors->fetch(PDO::FETCH_ASSOC) ) {
+                                                        echo '<option value="'.$row_colors['color'].'">'.( ( $row_colors['label'] != '' ) ? $row_colors['label'] : $row_colors['color'] ).'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <p style="font-size:11px; padding: 5px 10px; float: left;">ou defina abaixo uma nova cor</p>
+                                    <div class="fix"></div>
+                                </li>
+                                <li style="width: auto; padding: 4px; position: relative;">
+                                    <input type="text" name="colors[]" class="colorpick" id="colorpickerFieldN_1" value="">
+                                    <label for="colorpickerFieldN_1" class="pick"></label><span>&nbsp;</span>
+                                    <input type="text" name="color_label[]" class="color_label" value="" />
+                                </li>
+                                <!--li class="sep"><a class="remove" href="javascript:void(0);"><img src="images/icons/dark/close.png" alt="Remover cor"></a></li-->
+
+                                <li class="line">&nbsp;</li>
+                                <li class="sep" style="display: none;">
+                                    <a class="add" href="javascript:void(0);"><img src="images/icons/dark/add.png" alt="Adicionar outra cor" /><!--span>Adicionar nova cor</span--></a>
+                                    <a class="remove" href="javascript:void(0);"><img src="images/icons/dark/close.png" alt="Remover cor"></a>
+                                </li>
                             </ul>                            
                         </div>
                         <div class="fix"></div>
@@ -240,13 +250,13 @@
                     <div class="rowElem">
                         <label>Tamanho/Capacidade:</label>
                         <div class="formRight">
-                            <input type="text" style="width:15%" name="size" id="size" value="<?php print $row['size']; ?>" /> <span style="font-size:11px;"><strong>Use:</strong> ml, P, M, G, GG, XG e números inteiros ou deixe em branco para tamanho Único</span>
+                            <input type="text" style="width:15%" name="size" id="size" value="<?php print $row['size']; ?>" /> <span style="font-size:11px;"><strong>Use:</strong> ml, P, M, G, GG, XG e nÃºmeros inteiros ou deixe em branco para tamanho Ãšnico</span>
                         </div>
                         <div class="fix"></div>
                     </div>
 
                     <div class="rowElem">
-                        <label>Dimensões:</label>
+                        <label>DimensÃµes:</label>
                         <div class="formRight moreFields">
                             <ul>
                                 <li><input type="text" name="length" maxlength="6" value="<?php print $row['length']; ?>" /></li>
@@ -262,13 +272,13 @@
                     </div>
 
                     <div class="rowElem">
-                        <label>Especificações:</label>
+                        <label>EspecificaÃ§Ãµes:</label>
                         <div class="formRight moreFields">
                             <ul>
                                 <li><input type="text" name="radius" maxlength="6" value="<?php print $row['radius']; ?>"></li>
                                 <li class="sep">x</li>
                                 <li><input type="text" name="height" maxlength="6" value="<?php print $row['height']; ?>"></li>
-                                <li><span style="font-size:11px;">Diâmetro x Altura (em cm)</span></li>
+                                <li><span style="font-size:11px;">DiÃ¢metro x Altura (em cm)</span></li>
                             </ul>
 
                         </div>
@@ -278,22 +288,22 @@
                     <div class="rowElem">
                         <label>Peso:</label>
                         <div class="formRight">
-                            <input type="text" style="width:15%" name="weight" id="weight" value="<?php print $row['weight']; ?>"> <span style="font-size:11px; margin-top: 4px; display: block; float: right; width: 420px;">O PagSeguro utiliza o peso total dos produtos para o cálculo do frete. Mínimo 0,300Kg e Máximo 10Kg por cada item. <a href="https://pagseguro.uol.com.br/para_seu_negocio/envio-facil.jhtml#rmcl" target="_blank">Veja + detalhes</a></span>
+                            <input type="text" style="width:15%" name="weight" id="weight" value="<?php print $row['weight']; ?>"> <span style="font-size:11px; margin-top: 4px; display: block; float: right; width: 420px;">O PagSeguro utiliza o peso total dos produtos para o cÃ¡lculo do frete. MÃ­nimo 0,300Kg e MÃ¡ximo 10Kg por cada item. <a href="https://pagseguro.uol.com.br/para_seu_negocio/envio-facil.jhtml#rmcl" target="_blank">Veja + detalhes</a></span>
                         </div>
                         <div class="fix"></div>
                     </div>
 
 
                     <div class="rowElem">
-                        <label>Valor Unitário:</label>
+                        <label>Valor UnitÃ¡rio:</label>
                         <div class="formRight">
-                            <input type="text" style="width:15%" name="max_price" id="max_price" value="<?php print $row['max_price']; ?>" /> <span style="font-size:11px;">Ex. 10,00 (use vírgula)</span>
+                            <input type="text" style="width:15%" class="validate[required]" name="max_price" id="max_price" value="<?php print $row['max_price']; ?>" /> <span style="font-size:11px;">Ex. 10,00 (use vÃ­rgula)</span>
                         </div>
                         <div class="fix"></div>
                     </div>
 
                      <!--div class="rowElem">
-                        <label>Valor Mínimo:</label>
+                        <label>Valor MÃ­nimo:</label>
                         <div class="formRight">
                             <input type="text" style="width:15%" name="min_price" id="min_price" value="<?php print $row['min_price']; ?>" /><span style="font-size:11px;"> maior que 1 unidade</span>
                         </div>
@@ -301,9 +311,9 @@
                     </div-->
                     
                    <div class="rowElem" style="visibility: hidden; overflow: hidden; height: 0; padding:0;">
-                        <label>Código de Compra:</label>
+                        <label>CÃ³digo de Compra:</label>
                         <div class="formRight">
-                            <input type="text" name="prod_code" id="prod_code" value="<?php print $row['prod_code']; ?>" /><span style="font-size:11px;"> código cadastrado no PagSeguro</span>
+                            <input type="text" name="prod_code" id="prod_code" value="<?php print $row['prod_code']; ?>" /><span style="font-size:11px;"> cÃ³digo cadastrado no PagSeguro</span>
                         </div>
                         <div class="fix"></div>
                     </div>
@@ -312,16 +322,16 @@
                         <label>Destaque:</label> 
                         <div class="formRight">
                             <input type="radio" name="highlight" <?php if( $row['highlight'] == 1 ) print 'checked="checked" '; ?> value="1" /><label>Sim</label>
-                            <input type="radio" name="highlight" <?php if( $row['highlight'] == 0 ) print 'checked="checked" '; ?> value="0" /><label>Não</label><span style="font-size:11px; margin-top: 4px; display: block;">Marque SIM para o produto aparecer no carrossel da home abaixo do banner</span>
+                            <input type="radio" name="highlight" <?php if( $row['highlight'] == 0 ) print 'checked="checked" '; ?> value="0" /><label>NÃ£o</label><span style="font-size:11px; margin-top: 4px; display: block;">Marque SIM para o produto aparecer no carrossel da home abaixo do banner</span>
                         </div>
                         <div class="fix"></div>
                     </div>
 
                     <div class="rowElem">
-                        <label>Combina com você:</label> 
+                        <label>Combina com vocÃª:</label> 
                         <div class="formRight">
                             <input type="radio" name="combine" <?php if( $row['combine'] == 1 ) print 'checked="checked" '; ?> value="1" /><label>Sim</label>
-                            <input type="radio" name="combine" <?php if( $row['combine'] == 0 ) print 'checked="checked" '; ?> value="0" /><label>Não</label><span style="font-size:11px; margin-top: 4px; display: block;">Marque SIM para o produto aparecer no carrossel do "Produtos que combinam com você" de cada categoria</span>
+                            <input type="radio" name="combine" <?php if( $row['combine'] == 0 ) print 'checked="checked" '; ?> value="0" /><label>NÃ£o</label><span style="font-size:11px; margin-top: 4px; display: block;">Marque SIM para o produto aparecer no carrossel do "Produtos que combinam com vocÃª" de cada categoria</span>
                         </div>
                         <div class="fix"></div>
                     </div>

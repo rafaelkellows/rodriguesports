@@ -1,8 +1,12 @@
+<?php
+	//error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
+	header('Content-Type: text/html; charset=utf-8');
+?>
 	<head>
 		<title>Rodrigues Sports - artigos esportivos - <?php print $page_title; ?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 		<meta name="viewport" content="width=device-width,user-scalable=no">
-		<meta name="Keywords" content="Spatula, Presentes, Marca, Bolacha, Chaveiro, Xícara, Copo, Caneca, Garrafa, Térmica, Plástica, Porta, Retrato, Sandália, Chinelo, Plástico, Descartável, Linha, Coleção, Bolsa, Almofada, Capa, Celular, Brinde, Acessório, Personaliza">
+		<meta name="Keywords" content="Spatula, Presentes, Marca, Bolacha, Chaveiro, XÃ­cara, Copo, Caneca, Garrafa, TÃ©rmica, PlÃ¡stica, Porta, Retrato, SandÃ¡lia, Chinelo, PlÃ¡stico, DescartÃ¡vel, Linha, ColeÃ§Ã£o, Bolsa, Almofada, Capa, Celular, Brinde, AcessÃ³rio, Personaliza">
 		<meta name="Description" content="Spatula - Presentes que marcam">
 		
 		<link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">

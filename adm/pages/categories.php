@@ -25,13 +25,13 @@
                 
                 case 3:
                     echo '<div class="nNote nSuccess hideit">';
-                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluÌdos corretamente.</p>';
+                    echo '  <p><strong>SUCESSO: </strong>os dados foram exclu√≠dos corretamente.</p>';
                     echo '</div>';
                     break;
                 
                 case 4:
                     echo '<div class="nNote nFailure hideit">';
-                    echo '  <p><strong>FALHOU: </strong>Este banner j· foi cadastrado. Por favor, preencha com novos dados.</p>';
+                    echo '  <p><strong>FALHOU: </strong>Este banner j√° foi cadastrado. Por favor, preencha com novos dados.</p>';
                     echo '</div>';
                     break;
                 
@@ -43,7 +43,7 @@
         
             <!-- Blockquote -->
             <blockquote class="first">
-                A seguir, vocÍ encontra as Categorias e Subcategorias cadastradas no sistema.<br /> Para <strong>Adicionar</strong> uma categoria nova clique no bot„o "Inserir Nova Categoria".
+                A seguir, voc√™ encontra as Categorias e Subcategorias cadastradas no sistema.<br /> Para <strong>Adicionar</strong> uma categoria nova clique no bot√£o "Inserir Nova Categoria".
             </blockquote>
 
             <form action="pages/categories_action.php" method="post" id="categoriesForm" class="mainForm">
@@ -90,7 +90,7 @@
                                         }
                                         echo '</div>';
                                     }else{
-                                        echo  'N„o h· subcategoria cadastrada. Clique no Ìcone + para adicionar.';
+                                        echo  'N√£o h√° subcategoria cadastrada. Clique no √≠cone + para adicionar.';
                                     }
                                     echo '</div>';
                                 }

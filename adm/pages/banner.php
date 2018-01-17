@@ -5,12 +5,12 @@
         $row = $all->fetch(PDO::FETCH_ASSOC);
         $hiddenVal = 'banner'; 
         $btValue = 'Salvar Dados';
-        $blockquoteValue = 'Banner criado em '.date_format(date_create($row['created']), 'd/m/y').' ‡s '.date_format(date_create($row['created']), 'G:ia').' e alterado em '.date_format(date_create($row['modified']), 'd/m/y').' ‡s '.date_format(date_create($row['modified']), 'G:ia').'.';
+        $blockquoteValue = 'Banner criado em '.date_format(date_create($row['created']), 'd/m/y').' √†s '.date_format(date_create($row['created']), 'G:ia').' e alterado em '.date_format(date_create($row['modified']), 'd/m/y').' √†s '.date_format(date_create($row['modified']), 'G:ia').'.';
     }else{
         $row = (!isset($_GET["src"]) ? 0 : Array ( 'id' => 0, 'alt' => $_GET["alt"],'title' => $_GET["title"], 'description' => $_GET["description"], 'link' => $_GET["link"], 'target' => $_GET["target"], 'align' => $_GET["align"], 'status' => $_GET["status"] ) );
         $hiddenVal = 'new_banner';
         $btValue = 'Inserir Dados';
-        $blockquoteValue = '<strong>Ol·</strong>, preencha o formul·rio abaixo corretamente.';
+        $blockquoteValue = '<strong>Ol√° '. $usuario->getName() .'</strong>, preencha o formul√°rio abaixo corretamente.';
     }
     $submitReturn = (!isset($_GET["msg"]) ? -1 : $_GET["msg"]);
 ?>
@@ -37,13 +37,13 @@
                 
                 case 3:
                     echo '<div class="nNote nSuccess hideit">';
-                    echo '  <p><strong>SUCESSO: </strong>os dados foram excluÌdos corretamente.</p>';
+                    echo '  <p><strong>SUCESSO: </strong>os dados foram exclu√≠dos corretamente.</p>';
                     echo '</div>';
                     break;
                 
                 case 4:
                     echo '<div class="nNote nFailure hideit">';
-                    echo '  <p><strong>FALHOU: </strong>Este banner j· foi cadastrado. Por favor, preencha com novos dados.</p>';
+                    echo '  <p><strong>FALHOU: </strong>Este banner j√° foi cadastrado. Por favor, preencha com novos dados.</p>';
                     echo '</div>';
                     break;
                 
@@ -69,7 +69,7 @@
                     <input type="hidden" name="bid" value="<?php print $row['id']; ?>" />
 
                     <div class="rowElem">
-                        <label style="width:auto">PrÈ-visualizaÁ„o do Banner: <br><em style="font-size:11px;">certifique-se de que o banner tenha pelo menos 920x340 de dimens„o para manter a proporÁ„o e n„o haver espaÁos.</em></label>
+                        <label style="width:auto">Pr√©-visualiza√ß√£o do Banner: <br><em style="font-size:11px;">certifique-se de que o banner tenha pelo menos 920x340 de dimens√£o para manter a propor√ß√£o e n√£o haver espa√ßos.</em></label>
                         <div id="bannerPreview" class="pics preview">
                             <ul>
                             <?php 
@@ -109,7 +109,7 @@
                     </div>
                     
                     <div class="rowElem">
-                        <label>TÌtulo:</label>
+                        <label>T√≠tulo:</label>
                         <div class="formRight">
                             <input type="text" name="title" id="title" value="<?php print $row['title']; ?>" />
                         </div>
@@ -117,9 +117,9 @@
                     </div>
                 
                     <div class="rowElem">
-                        <label>DescriÁ„o:</label>
+                        <label>Descri√ß√£o:</label>
                         <textarea class="wysiwyg" name="description" id="description" rows="5" cols=""><?php print $row['description']; ?></textarea>
-                        <span style="font-size:11px; display: inline-block; padding: 2px;"><strong>Importante:</strong> n„o copie e cole um conte˙do diretamente no editor. Isso pode alterar no resultado final.</span>
+                        <span style="font-size:11px; display: inline-block; padding: 2px;"><strong>Importante:</strong> n√£o copie e cole um conte√∫do diretamente no editor. Isso pode alterar no resultado final.</span>
                         <div class="fix"></div>
                     </div>
 
@@ -144,7 +144,7 @@
                                 }
                             ?>
                             </select>
-                            <span style="font-size:11px; display: inline-block; padding: 2px;"><strong>Dica:</strong> selecione a opÁ„o 'Link Externo' para habilitar a opÁ„o.</span>
+                            <span style="font-size:11px; display: inline-block; padding: 2px;"><strong>Dica:</strong> selecione a op√ß√£o 'Link Externo' para habilitar a op√ß√£o.</span>
                         </div>
                         <div class="fix"></div>
                     </div>
@@ -161,8 +161,8 @@
                         <label>Alvo (target):</label>
                         <div class="formRight">                        
                             <select name="target" style="width:200px">
-                                <option <?php if( $row['target'] == "_self" ) print 'selected'; ?> value="_self">_self: mesma p·gina</option>
-                                <option <?php if( $row['target'] == "_blank" ) print 'selected'; ?> value="_blank">_blank: nova p·gina</option>
+                                <option <?php if( $row['target'] == "_self" ) print 'selected'; ?> value="_self">_self: mesma p√°gina</option>
+                                <option <?php if( $row['target'] == "_blank" ) print 'selected'; ?> value="_blank">_blank: nova p√°gina</option>
                             </select>
                         </div>
                         <div class="fix"></div>
@@ -172,7 +172,7 @@
                         <label>Alinhamento (align):</label>
                         <div class="formRight">                        
                             <select name="align" style="width:150px">
-                                <option <?php if( $row['align'] == "left" ) print 'selected'; ?> value="left">· esquerda</option>
+                                <option <?php if( $row['align'] == "left" ) print 'selected'; ?> value="left">√° esquerda</option>
                                 <option <?php if( $row['align'] == "center" ) print 'selected'; ?> value="center">ao centro</option>
                                 <option <?php if( $row['align'] == "right" ) print 'selected'; ?> value="right">a direita</option>
                             </select>

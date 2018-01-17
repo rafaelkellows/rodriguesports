@@ -10,7 +10,7 @@
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
 						$mensagemConcatenada .= '		<strong>Erro</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>Usuário</strong> ou <strong>Senha</strong> incorreto.<br>Tente novamente.</span>';
+						$mensagemConcatenada .= '		<span><strong>Usu?io</strong> ou <strong>Senha</strong> incorreto.<br>Tente novamente.</span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-C" href="javascript:void(0);"><span>OK</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -19,8 +19,8 @@
 			    case '1':
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
-						$mensagemConcatenada .= '		<strong>Confirmação de Cadastro</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>Parabéns</strong>, você realizou a confirmação do seu cadastro com sucesso!<br>Agora é só <strong style="color:#3988d7">entrar</strong> com seu login e senha.</span>';
+						$mensagemConcatenada .= '		<strong>Confirma?o de Cadastro</strong><br><br>';
+						$mensagemConcatenada .= '		<span><strong>Parab?s</strong>, voc?realizou a confirma?o do seu cadastro com sucesso!<br>Agora ?s?<strong style="color:#3988d7">entrar</strong> com seu login e senha.</span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-C" href="javascript:void(0);"><span>OK</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -29,8 +29,8 @@
 			    case '2':
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
-						$mensagemConcatenada .= '		<strong>Confirmação de Cadastro</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>Olá</strong>, você já realizou a confirmação do seu cadastro com sucesso!<br></span>';
+						$mensagemConcatenada .= '		<strong>Confirma?o de Cadastro</strong><br><br>';
+						$mensagemConcatenada .= '		<span><strong>Ol?/strong>, voc?j?realizou a confirma?o do seu cadastro com sucesso!<br></span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-C" href="javascript:void(0);"><span>OK</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -39,8 +39,8 @@
 			    case '3':
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
-						$mensagemConcatenada .= '		<strong>Confirmação de Cadastro não efetuada</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>'.$usuario->getName().'</strong>,<br>você ainda não confirmou o seu cadastro através do link que foi enviado por e-mail após realizar seu cadastro! <a href="signin_action.php?ref=cadastreSe&e='.$usuario->getEmail().'&k_token='.$usuario->getKToken().'">Estou ciente do cadastro e confirmo clicando aqui?</a></span>';
+						$mensagemConcatenada .= '		<strong>Confirma?o de Cadastro n? efetuada</strong><br><br>';
+						$mensagemConcatenada .= '		<span><strong>'.$usuario->getName().'</strong>,<br>voc?ainda n? confirmou o seu cadastro atrav? do link que foi enviado por e-mail ap? realizar seu cadastro! <a href="signin_action.php?ref=cadastreSe&e='.$usuario->getEmail().'&k_token='.$usuario->getKToken().'">Estou ciente do cadastro e confirmo clicando aqui?</a></span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-E" href="javascript:void(0);"><span>SAIR</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -50,7 +50,7 @@
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
 						$mensagemConcatenada .= '		<strong>Reenvio de Senha</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>Parabéns</strong>, você realizou a solicitação do re-envio da sua senha com sucesso!<br>Veja no seu email suas credenciais cadastradas no site.</span>';
+						$mensagemConcatenada .= '		<span><strong>Parab?s</strong>, voc?realizou a solicita?o do re-envio da sua senha com sucesso!<br>Veja no seu email suas credenciais cadastradas no site.</span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-C" href="javascript:void(0);"><span>OK</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -60,7 +60,7 @@
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
 						$mensagemConcatenada .= '		<strong>Reenvio de Senha</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>Sinto muito</strong>, o email <b>'.$eml.'</b> não consta em nossos bancos.</span>';
+						$mensagemConcatenada .= '		<span><strong>Sinto muito</strong>, o email <b>'.$eml.'</b> n? consta em nossos bancos.</span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-C" href="javascript:void(0);"><span>OK</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -70,7 +70,7 @@
 						$mensagemConcatenada = '<div class="msgBox" style="display:block;">';
 						$mensagemConcatenada .= '	<p class="msg">';
 						$mensagemConcatenada .= '		<strong>Erro</strong><br><br>';
-						$mensagemConcatenada .= '		<span><strong>Algo deu errado</strong>. Pedimos desculpas e tente novamente recarregando sua página.</span>';
+						$mensagemConcatenada .= '		<span><strong>Algo deu errado</strong>. Pedimos desculpas e tente novamente recarregando sua p?ina.</span>';
 						$mensagemConcatenada .= '		<a class="btn-default btn-color-C" href="javascript:void(0);"><span>OK</span></a>';
 						$mensagemConcatenada .= '	</p>';
 						$mensagemConcatenada .= '</div>';
@@ -110,7 +110,7 @@
 					?>
 					<li class="block f-right logged">
 						<input id="user_id" type="hidden" value="<?php if ($usuario){ print $usuario->getId(); }else{ print ''; }; ?>" />
-						<a class="btn-logged" href="signin.php">Olá, <strong><?php if ($usuario){ print $usuario->getName(); }else{ print 'Visitante'; }; ?></strong>.</a>
+						<a class="btn-logged" href="signin.php">Ol? <strong><?php if ($usuario){ print $usuario->getName(); }else{ print 'Visitante'; }; ?></strong>.</a>
 					</li>
 					<li class="block f-right notlogged"><a class="fa fa-shopping-cart btn-color-E" href="checkout.php" title="Carrinho de Compras"><em>0</em></a></li>
 					<li class="block f-right"><a class="btn-edit btn-color-C" href="signin.php" title="Cadastre-se"><em>Meus Dados</em></a></li>
@@ -125,8 +125,8 @@
 					<fieldset>
 						<legend>Entre com seus dados</legend>
 						<a class="fa fa-close" href="javascript:void(0);"><span>Fechar</span></a>
-						<label for="login">Usuário</label>
-						<input type="text" placeholder="usuário" id="login" name="login" class="validate[required]" />
+						<label for="login">UsuÃ¡rio</label>
+						<input type="text" placeholder="usu?io" id="login" name="login" class="validate[required]" />
 						<label for="password">Senha</label>
 						<input type="password" placeholder="senha" id="password" name="password" class="validate[required]" />
 						<button class="btn-color-A acao" id="acao" name="acao" type="submit" value="entrar">entrar</button>
@@ -143,7 +143,7 @@
 				<form id="search-form" action="busca.php" method="post">
 					<fieldset>
 						<legend>Buscar na Spatula</legend>
-						<input placeholder="Oi! Digite o produto que você procura?" name="search" type="text" value="" />
+						<input placeholder="Oi! Digite o produto que vocÃª procura?" name="search" type="text" value="" />
 						<button type="submit">buscar</button>
 					</fieldset>
 				</form>
